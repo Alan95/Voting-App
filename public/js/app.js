@@ -44285,6 +44285,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -44360,7 +44371,11 @@ var staticRenderFns = [
       { staticClass: "navbar navbar-expand-lg navbar-dark bg-dark" },
       [
         _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-          _vm._v("Voting!")
+          _c("i", {
+            staticClass: "fa fa-telegram",
+            attrs: { "aria-hidden": "true" }
+          }),
+          _vm._v(" Voting")
         ]),
         _vm._v(" "),
         _c(
@@ -44423,15 +44438,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [
-      _c("nav-voting"),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c("footer", { staticClass: "text-center" }, [
-        _vm._v("\n        Copyright\n        Made by Alan\n    ")
-      ])
-    ],
+    [_c("nav-voting"), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)],
     1
   )
 }
@@ -44454,10 +44461,51 @@ var staticRenderFns = [
           "a",
           {
             staticClass: "btn btn-primary btn-lg",
-            attrs: { href: "#", role: "button" }
+            attrs: { role: "button", href: "/register" }
           },
           [_vm._v("Register Now")]
         )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", { staticClass: "text-center rounded bg-dark" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col margin-top-footer" }, [
+          _c("span", { staticClass: "text-white" }, [
+            _vm._v("Copyright © 2017")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col margin-top-footer" }, [
+          _c("span", { staticClass: "text-white" }, [_vm._v("Made by Alan")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [
+          _c("button", { staticClass: "btn btn-secondary" }, [
+            _c("i", {
+              staticClass: "fa fa-github text-white",
+              attrs: { "aria-hidden": "true" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("button", { staticClass: "btn btn-success" }, [
+            _c("i", {
+              staticClass: "fa fa-free-code-camp",
+              attrs: { "aria-hidden": "true" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("button", { staticClass: "btn btn-primary" }, [
+            _c("i", {
+              staticClass: "fa fa-linkedin-square",
+              attrs: { "aria-hidden": "true" }
+            })
+          ])
+        ])
       ])
     ])
   }

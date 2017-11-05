@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'UserController@showHome');
+Route::get('/register', 'UserController@showRegisterForm');
+Route::post('/register', 'UserController@addNewUser');
+
