@@ -9,13 +9,10 @@
             </ul>    
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="/profile">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sign In</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Polls</a>
+                    <a class="nav-link" href="/polls">Polls</a>
                 </li>
             </ul>
         </div>

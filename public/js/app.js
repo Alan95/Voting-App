@@ -44338,9 +44338,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -44396,21 +44393,19 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("ul", { staticClass: "navbar-nav ml-auto" }, [
               _c("li", { staticClass: "nav-item" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                  _vm._v("Login")
-                ])
+                _c(
+                  "a",
+                  { staticClass: "nav-link", attrs: { href: "/profile" } },
+                  [_vm._v("Login")]
+                )
               ]),
               _vm._v(" "),
               _c("li", { staticClass: "nav-item" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                  _vm._v("Sign In")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                  _vm._v("Polls")
-                ])
+                _c(
+                  "a",
+                  { staticClass: "nav-link", attrs: { href: "/polls" } },
+                  [_vm._v("Polls")]
+                )
               ])
             ])
           ]

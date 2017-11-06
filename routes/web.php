@@ -11,7 +11,14 @@
 |
 */
 
-Route::get('/', 'UserController@showHome');
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/profile', 'HomeController@showProfile')->name('profile');
+
 Route::get('/register', 'UserController@showRegisterForm');
 Route::post('/register', 'UserController@addNewUser');
+
+Route::get('/polls', 'PollsController@showAll');
+
 

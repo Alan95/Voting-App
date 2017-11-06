@@ -3,12 +3,13 @@
     <div class="container margin-top">
         <div class="text-center">
                 <h1 class="display-4">Register</h1> 
-            </div>
+        </div>
         <div class="row">
             <div class="col">
-                <a href="{{ url()->previous() }}" class="btn btn-dark"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back</a>
+                <a href="{{ route('home') }}" class="btn btn-dark"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back</a>
             </div>
         </div>
+        <hr>
         <br>
         <form method="POST">
             {{ csrf_field() }}

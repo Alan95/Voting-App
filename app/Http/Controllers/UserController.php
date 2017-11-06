@@ -7,18 +7,16 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
+use App\User;
+use Auth;
+
 
 class UserController extends BaseController
 {
-    public function showHome()
-    {
-        return view('home');
-    }
     public function showRegisterForm()
     {
         return view('register');
     }
-
     public function addNewUser(Request $request)
     {
         $request->validate([
@@ -27,6 +25,12 @@ class UserController extends BaseController
             'email' => ''
         ]);
 
-        return 200;
+        $user = new User;
+        $user->name = $request->name;
+        $user->password = $request->password;
+        $user->email = $request->email;
+        $user->save();
+        Auth::login($user);
+        return redirect()->route('profile');
     }
 }
