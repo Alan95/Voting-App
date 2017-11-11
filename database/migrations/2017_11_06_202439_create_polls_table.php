@@ -17,6 +17,7 @@ class CreatePollsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->longText('choices');
+            $table->longText('url');
             $table->integer('user_id')->unsigned();
             $table->timestamps();
 

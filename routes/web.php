@@ -14,11 +14,12 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/profile', 'HomeController@showProfile')->name('profile');
+Route::get('/profile', 'HomeController@showProfile')->name('profile')->middleware('auth');
+Route::get('/logout', 'HomeController@loggingOut')->middleware('auth');
 
 Route::get('/register', 'UserController@showRegisterForm');
 Route::post('/register', 'UserController@addNewUser');
 
-Route::get('/polls', 'PollsController@showAll');
+Route::get('/polls', 'PollController@showAllPolls');
 
 

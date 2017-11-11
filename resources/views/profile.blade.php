@@ -1,11 +1,15 @@
 @extends('header')
 @section('content')
-@auth
-    Hello {{ Auth::user()->name }}
-@endauth
-@guest
-    Error
-@endguest
-
-
+<div class="container">
+    @auth
+    <div id="app">
+        <profile :user="{{ Auth::user() }}"></profile>
+    </div>    
+    @endauth
+    @guest
+    <div class="alert alert-dark" role="alert">
+        Please login to see your profile.
+    </div>    
+    @endguest
+</div>
 @endsection('content')
