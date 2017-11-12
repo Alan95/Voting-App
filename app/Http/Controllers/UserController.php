@@ -6,7 +6,6 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
@@ -28,7 +27,7 @@ class UserController extends BaseController
 
         $user = new User;
         $user->name = $request->name;
-        $user->password = Hash::make($request->password);
+        $user->password = $request->password;
         $user->email = $request->email;
         $user->save();
         Auth::login($user);

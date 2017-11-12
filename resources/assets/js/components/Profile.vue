@@ -3,13 +3,13 @@
         <nav-voting :user="user"></nav-voting>
         <br>
         <div class="jumbotron">
-            <h5 class="text-center">Welcome, {{ user.name }} !</h5>
+            <h5 class="text-center">Welcome back, {{ user.name }} !</h5>
         </div>
         <div class="text-center">
             <div class="btn-group text-center">
-                <button @click="activeView !== 'new' ? changeView('new') : activeView = null" class="btn btn-primary"><i class="fa fa-plus-square" aria-hidden="true"></i> New Poll</button>
-                <button @click="activeView !== 'my' ? changeView('my') : activeView = null" class="btn btn-success"><i class="fa fa-th-large" aria-hidden="true"></i> My Polls</button>
-                <button @click="activeView !== 'edit' ? changeView('edit') : activeView = null" class="btn btn-secondary"><i class="fa fa-pencil" aria-hidden="true"></i> Edit User</button>
+                <button @click="activeView !== 'new' ? changeView('new') : activeView = null" class="btn btn-primary">New Poll</button>
+                <button @click="activeView !== 'my' ? changeView('my') : activeView = null" class="btn btn-success">My Polls</button>
+                <button @click="activeView !== 'edit' ? changeView('edit') : activeView = null" class="btn btn-secondary">Edit User</button>
             </div>
         </div>
         <br>
@@ -27,13 +27,10 @@
                         <div class="form-group">
                             <label>Options</label>
                             <template v-for="(option, ind) in poll.options">
-                                <input :key="ind" class="form-control" type="text" v-model="poll.options[ind].name" :name="'option'+ ind" />
+                                <input :key="ind" class="form-control" :placeholder="'option '+ ++ind" type="text" :name="'option'+ ++ind" />
                             </template>
                         </div>
-                        <div style="margin-bottom: 5px;">
-                            <button @click="addMoreOptions"  class="btn btn-secondary">More Options</button>
-                            <button @click="reduceOptions" class="btn btn-danger">Less Options</button>
-                        </div>
+                        <button @click="addMoreOptions" style="margin-bottom: 15px;" class="btn btn-secondary">More Options</button>
                         <br>
                         <button @click="createNewPoll" type="submit" class="btn btn-block btn-primary">Create Poll</button>
                     </div>
@@ -81,12 +78,15 @@
 
     export default {
         props: ["user", "polls"],
+        mounted() {
+            console.log(this.user);
+        },
         data() {
             return {
                 activeView: 'new',
                 poll: {
                     name: null,
-                    options: [{"votes": 0, "name": null}, {"votes": 0, "name": null}, { "votes": 0, "name": null}]
+                    options: [{}, {}, {}]
                 }
             }
             
@@ -98,27 +98,11 @@
             },
             addMoreOptions(){
                 var self = this;
-                self.poll.options.push({"votes": 0});
-            },
-            reduceOptions(){
-                var self = this;
-                self.poll.options.length > 1 ? self.poll.options.pop() : '';
+                self.poll.options.push({});
             },
             createNewPoll() {
                 var self = this;
-                console.log(self.poll.options);
-                axios.post(`/createPoll`, {
-                        name: self.poll.name,
-                        options: self.poll.options
-                    })
-                    .then(response => {
-                    window.alert("Saved");
-                    self.poll.name =  null;
-                    self.poll.options = [{"name": null, "votes": 0}, {"name": null, "votes": 0}, {"name": null, "votes": 0}]
-                    })
-                    .catch(e => {
-                    self.errors.push(e)
-                    })
+                
             }
         },
         components: {

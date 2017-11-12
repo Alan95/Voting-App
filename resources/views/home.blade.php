@@ -5,7 +5,7 @@
                 @if(Auth::user())
                 <home :user="{{ Auth::user() }} "></home>
                 @else
-                <home :user="''"></home>
+                <home></home>
                 @endif
             </div>
     </div>
