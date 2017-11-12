@@ -18,6 +18,7 @@
     import Footer from './Footer.vue';
 
     export default {
+        props: ['user'],
         mounted() {
             
         },
