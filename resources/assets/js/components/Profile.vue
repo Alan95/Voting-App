@@ -3,7 +3,7 @@
         <nav-voting :user="user"></nav-voting>
         <br>
         <div class="jumbotron">
-            <h5 class="text-center">Welcome back, {{ user.name }} !</h5>
+            <h5 class="text-center">Welcome {{ user.name }} !</h5>
         </div>
         <div class="text-center">
             <div class="btn-group text-center">

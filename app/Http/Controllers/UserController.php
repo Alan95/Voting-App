@@ -33,4 +33,15 @@ class UserController extends BaseController
         Auth::login($user);
         return redirect()->route('profile');
     }
+
+    public function editUser()
+    {
+
+    }
+
+
+    public function deleteUser()
+    {
+        
+    }
 }

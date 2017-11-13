@@ -44334,11 +44334,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    props: ["user"],
     mounted: function mounted() {},
     data: function data() {
         return {};
@@ -44599,13 +44605,15 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("nav-voting", { attrs: { user: _vm.user } }),
+      _vm.user !== null
+        ? [_c("nav-voting", { attrs: { user: _vm.user } })]
+        : [_c("nav-voting")],
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
       _c("custom-footer")
     ],
-    1
+    2
   )
 }
 var staticRenderFns = [
@@ -44957,7 +44965,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "jumbotron" }, [
         _c("h5", { staticClass: "text-center" }, [
-          _vm._v("Welcome back, " + _vm._s(_vm.user.name) + " !")
+          _vm._v("Welcome " + _vm._s(_vm.user.name) + " !")
         ])
       ]),
       _vm._v(" "),
