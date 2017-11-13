@@ -1,11 +1,6 @@
 <template>
 <div>
-    <template v-if="user !== null">
-        <nav-voting :user="user"></nav-voting>
-    </template>
-    <template v-else>
-        <nav-voting></nav-voting>
-    </template>      
+    <nav-voting :user="user"></nav-voting> 
     <div class="main-text">
         <h1 class="display-3">Voting App</h1>
         <p class="lead">Create Polls and share your Polls with everyone!</p>
@@ -23,7 +18,7 @@
     import Footer from './Footer.vue';
 
     export default {
-        props: ["user"],
+        props: ['user'],
         mounted() {
             
         },

@@ -11,19 +11,22 @@
 |
 */
 
-Auth::routes();
-
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/register', 'UserController@showRegisterForm');
 Route::post('/register', 'UserController@addNewUser');
 
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('/login', 'Auth\LoginController@authenticate');
+
 Route::get('/polls', 'PollController@showAllPolls');
 
 Route::middleware('auth')->group(function(){
 
-    Route::get('/profile', 'HomeController@showProfile')->name('profile')->middleware('auth');
-    Route::get('/logout', 'HomeController@loggingOut')->middleware('auth');
+    Route::get('/profile', 'HomeController@showProfile')->name('profile');
+    Route::get('/logout', 'HomeController@loggingOut');
+    Route::get('/profile', 'HomeController@showProfile')->name('profile');
+    Route::post('createPoll', 'PollController@createNewPoll');
 
     Route::prefix('poll')->group(function(){
         Route::get('/{id}', 'PollController@showOnePoll');

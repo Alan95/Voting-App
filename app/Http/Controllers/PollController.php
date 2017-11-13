@@ -27,4 +27,16 @@ class PollController extends Controller
     {
 
     }
+
+    public function createNewPoll(Request $request)
+    {
+        $poll = new Poll;
+        $user = Auth::user();
+        
+        $poll->title = $request->name;
+        $poll->choices = $request->options;
+        $poll->url = str_slug($request->name, "-");
+        $user->polls()->save($poll);
+        return 200;
+    }
 }
