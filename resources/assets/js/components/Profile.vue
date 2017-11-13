@@ -105,7 +105,6 @@
             },
             createNewPoll() {
                 var self = this;
-                console.log(self.poll.options);
                 axios.post(`/createPoll`, {
                         name: self.poll.name,
                         options: self.poll.options

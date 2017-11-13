@@ -44334,17 +44334,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ["user"],
+    props: ['user'],
     mounted: function mounted() {},
     data: function data() {
         return {};
@@ -44363,6 +44358,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
 //
 //
 //
@@ -44425,7 +44423,13 @@ var render = function() {
           _c(
             "ul",
             { staticClass: "navbar-nav ml-auto" },
-            [!_vm.user ? [_vm._m(2)] : [_vm._m(3)], _vm._v(" "), _vm._m(4)],
+            [
+              !_vm.user
+                ? [_vm._m(2)]
+                : [_vm._m(3), _vm._v("   \n+                   "), _vm._m(4)],
+              _vm._v(" "),
+              _vm._m(5)
+            ],
             2
           )
         ]
@@ -44467,6 +44471,17 @@ var staticRenderFns = [
       _c("a", { staticClass: "nav-link", attrs: { href: "/profile" } }, [
         _vm._v("Login")
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "/profile" } }, [
+        _vm._v("My Polls")
+      ]),
+      _vm._v("\n+                   ")
     ])
   },
   function() {
@@ -44605,15 +44620,13 @@ var render = function() {
   return _c(
     "div",
     [
-      _vm.user !== null
-        ? [_c("nav-voting", { attrs: { user: _vm.user } })]
-        : [_c("nav-voting")],
+      _c("nav-voting", { attrs: { user: _vm.user } }),
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
       _c("custom-footer")
     ],
-    2
+    1
   )
 }
 var staticRenderFns = [
@@ -44721,12 +44734,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {},
+    props: ['polls'],
+    mounted: function mounted() {
+        console.log(this.polls);
+    },
     data: function data() {
         return {};
     },
@@ -44754,6 +44783,8 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
       _c("custom-footer")
     ],
     1
@@ -44766,6 +44797,24 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "jumbotron" }, [
       _c("h3", { staticClass: "text-center" }, [_vm._v("Polls")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("table", { staticClass: "table" }, [
+      _c("thead", [
+        _c("tr", [_c("th", { attrs: { scope: "col" } }, [_vm._v("Test")])])
+      ]),
+      _vm._v(" "),
+      _c("tbody", [
+        _c("tr", [
+          _c("th", { attrs: { scope: "row" } }, [_vm._v("1")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Test")])
+        ])
+      ])
     ])
   }
 ]
@@ -44910,21 +44959,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ["user", "polls"],
-    mounted: function mounted() {
-        console.log(this.user);
-    },
     data: function data() {
         return {
             activeView: 'new',
             poll: {
                 name: null,
-                options: [{}, {}, {}]
+                options: [{ "votes": 0, "name": null }, { "votes": 0, "name": null }, { "votes": 0, "name": null }]
             }
         };
     },
@@ -44936,10 +44984,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         addMoreOptions: function addMoreOptions() {
             var self = this;
-            self.poll.options.push({});
+            self.poll.options.push({ "votes": 0 });
+        },
+        reduceOptions: function reduceOptions() {
+            var self = this;
+            self.poll.options.length > 1 ? self.poll.options.pop() : '';
         },
         createNewPoll: function createNewPoll() {
             var self = this;
+            axios.post('/createPoll', {
+                name: self.poll.name,
+                options: self.poll.options
+            }).then(function (response) {
+                window.alert("Saved");
+                self.poll.name = null;
+                self.poll.options = [{ "name": null, "votes": 0 }, { "name": null, "votes": 0 }, { "name": null, "votes": 0 }];
+            }).catch(function (e) {
+                self.errors.push(e);
+            });
         }
     },
     components: {
@@ -44965,7 +45027,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "jumbotron" }, [
         _c("h5", { staticClass: "text-center" }, [
-          _vm._v("Welcome " + _vm._s(_vm.user.name) + " !")
+          _vm._v("Welcome, " + _vm._s(_vm.user.name) + " !")
         ])
       ]),
       _vm._v(" "),
@@ -44983,7 +45045,13 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("New Poll")]
+            [
+              _c("i", {
+                staticClass: "fa fa-plus-square",
+                attrs: { "aria-hidden": "true" }
+              }),
+              _vm._v(" New Poll")
+            ]
           ),
           _vm._v(" "),
           _c(
@@ -44998,7 +45066,13 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("My Polls")]
+            [
+              _c("i", {
+                staticClass: "fa fa-th-large",
+                attrs: { "aria-hidden": "true" }
+              }),
+              _vm._v(" My Polls")
+            ]
           ),
           _vm._v(" "),
           _c(
@@ -45013,7 +45087,13 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Edit User")]
+            [
+              _c("i", {
+                staticClass: "fa fa-pencil",
+                attrs: { "aria-hidden": "true" }
+              }),
+              _vm._v(" Edit User")
+            ]
           )
         ])
       ]),
@@ -45067,12 +45147,29 @@ var render = function() {
                       _vm._l(_vm.poll.options, function(option, ind) {
                         return [
                           _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.poll.options[ind].name,
+                                expression: "poll.options[ind].name"
+                              }
+                            ],
                             key: ind,
                             staticClass: "form-control",
-                            attrs: {
-                              placeholder: "option " + ++ind,
-                              type: "text",
-                              name: "option" + ++ind
+                            attrs: { type: "text", name: "option" + ind },
+                            domProps: { value: _vm.poll.options[ind].name },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.poll.options[ind],
+                                  "name",
+                                  $event.target.value
+                                )
+                              }
                             }
                           })
                         ]
@@ -45081,15 +45178,25 @@ var render = function() {
                     2
                   ),
                   _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-secondary",
-                      staticStyle: { "margin-bottom": "15px" },
-                      on: { click: _vm.addMoreOptions }
-                    },
-                    [_vm._v("More Options")]
-                  ),
+                  _c("div", { staticStyle: { "margin-bottom": "5px" } }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-secondary",
+                        on: { click: _vm.addMoreOptions }
+                      },
+                      [_vm._v("More Options")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        on: { click: _vm.reduceOptions }
+                      },
+                      [_vm._v("Less Options")]
+                    )
+                  ]),
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),

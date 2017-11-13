@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Poll;
+use App\User;
+use Auth;
+
 
 class PollController extends Controller
 {
