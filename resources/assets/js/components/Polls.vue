@@ -8,13 +8,20 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Test</th>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Choices</th>
+                    <th scope="col">Link</th>
+                    <th scope="col">Participants</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <th scope="row">1</th>
-                    <td>Test</td>
+                <tr v-for="poll in polls">
+                <th scope="row">{{ poll.id }}</th>
+                    <td>{{ poll.title }}</td>
+                    <td>{{ poll.choices }}</td>
+                    <td><a target="_blank" :href="currentRoute(poll.url)">Click</a></td>
+                    <td>-</td>
                 </tr>
             </tbody>
         </table>
@@ -34,6 +41,11 @@
         data() {
             return {
                 
+            }
+        },
+        methods:{
+            currentRoute(url) {
+                return '/poll/' + url;
             }
         },
         components: {

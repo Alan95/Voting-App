@@ -21,9 +21,10 @@ class PollController extends Controller
 
     }
     
-    public function showOnePoll($id)
+    public function showOnePoll($url)
     {
-
+        $poll = Poll::where('url', '=', $url)->first();
+        return view('poll')->with('poll', $poll);
     }
 
     public function deletePoll($id)

@@ -1196,6 +1196,7 @@ window.Vue = __webpack_require__(38);
 Vue.component('home', __webpack_require__(41));
 Vue.component('nav-voting', __webpack_require__(2));
 Vue.component('polls', __webpack_require__(48));
+Vue.component('poll', __webpack_require__(59));
 Vue.component('profile', __webpack_require__(51));
 
 var app = new Vue({
@@ -44747,6 +44748,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -44760,6 +44768,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {};
     },
 
+    methods: {
+        currentRoute: function currentRoute(url) {
+            return '/poll/' + url;
+        }
+    },
     components: {
         'nav-voting': __WEBPACK_IMPORTED_MODULE_0__Nav_vue___default.a,
         'custom-footer': __WEBPACK_IMPORTED_MODULE_1__Footer_vue___default.a
@@ -44783,7 +44796,37 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _vm._m(1),
+      _c("table", { staticClass: "table" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.polls, function(poll) {
+            return _c("tr", [
+              _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(poll.id))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(poll.title))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(poll.choices))]),
+              _vm._v(" "),
+              _c("td", [
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      target: "_blank",
+                      href: _vm.currentRoute(poll.url)
+                    }
+                  },
+                  [_vm._v("Click")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v("-")])
+            ])
+          })
+        )
+      ]),
       _vm._v(" "),
       _c("custom-footer")
     ],
@@ -44803,17 +44846,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("table", { staticClass: "table" }, [
-      _c("thead", [
-        _c("tr", [_c("th", { attrs: { scope: "col" } }, [_vm._v("Test")])])
-      ]),
-      _vm._v(" "),
-      _c("tbody", [
-        _c("tr", [
-          _c("th", { attrs: { scope: "row" } }, [_vm._v("1")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("Test")])
-        ])
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Title")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Choices")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Link")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Participants")])
       ])
     ])
   }
@@ -45235,7 +45278,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("p", { staticClass: "card-text" }),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
+                  _c("label", { attrs: { for: "name" } }, [_vm._v("Title")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -45350,6 +45393,158 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(60)
+/* template */
+var __vue_template__ = __webpack_require__(61)
+/* template functional */
+  var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\Poll.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0a80e394", Component.options)
+  } else {
+    hotAPI.reload("data-v-0a80e394", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 60 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Nav_vue__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Nav_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Nav_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Footer_vue__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Footer_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Footer_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['poll'],
+    mounted: function mounted() {
+        console.log(this.poll);
+    },
+    data: function data() {
+        return {};
+    },
+
+    components: {
+        'nav-voting': __WEBPACK_IMPORTED_MODULE_0__Nav_vue___default.a,
+        'custom-footer': __WEBPACK_IMPORTED_MODULE_1__Footer_vue___default.a
+    }
+});
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("nav-voting"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", { staticClass: "jumbotron" }, [
+        _c("h3", { staticClass: "text-center" }, [
+          _vm._v(_vm._s(_vm.poll.title))
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card text-center" }, [
+        _c(
+          "div",
+          { staticClass: "card-body" },
+          _vm._l(_vm.poll.choices, function(choice) {
+            return _c("ul", [
+              _c("li", [
+                _vm._v(_vm._s(choice.name) + " " + _vm._s(choice.votes))
+              ]),
+              _vm._v(" "),
+              _c("button", { staticClass: "btn btn-primary" }, [_vm._v("Vote")])
+            ])
+          })
+        )
+      ]),
+      _vm._v(" "),
+      _c("custom-footer")
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0a80e394", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

@@ -20,6 +20,7 @@ Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\LoginController@authenticate');
 
 Route::get('/polls', 'PollController@showAllPolls');
+Route::get('/poll/{url}', 'PollController@showOnePoll');
 
 Route::middleware('auth')->group(function(){
 
@@ -29,7 +30,6 @@ Route::middleware('auth')->group(function(){
     Route::post('createPoll', 'PollController@createNewPoll');
 
     Route::prefix('poll')->group(function(){
-        Route::get('/{id}', 'PollController@showOnePoll');
         Route::get('/{id}/edit', 'PollController@editPoll');
         Route::get('/{id}/delete', 'PollController@deletePoll');
     });
