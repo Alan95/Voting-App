@@ -21,6 +21,7 @@ Route::post('/login', 'Auth\LoginController@authenticate');
 
 Route::get('/polls', 'PollController@showAllPolls');
 Route::get('/poll/{url}', 'PollController@showOnePoll');
+Route::post('/poll/vote', 'PollController@vote');
 
 Route::middleware('auth')->group(function(){
 

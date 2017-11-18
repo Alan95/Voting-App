@@ -12,16 +12,14 @@
                     <th scope="col">Title</th>
                     <th scope="col">Choices</th>
                     <th scope="col">Link</th>
-                    <th scope="col">Participants</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="poll in polls">
                 <th scope="row">{{ poll.id }}</th>
-                    <td>{{ poll.title }}</td>
-                    <td>{{ poll.choices }}</td>
-                    <td><a target="_blank" :href="currentRoute(poll.url)">Click</a></td>
-                    <td>-</td>
+                    <td class="poll-header">{{ poll.title }}</td>
+                    <td ><li class="list-group-item d-flex justify-content-between align-items-center" v-for="choice in poll.choices">{{ choice.name }}<span class="badge badge-primary badge-pill">{{ choice.votes }}</span></li></td>
+                    <td><a class="btn btn-primary" target="_blank" :href="currentRoute(poll.url)">Click</a></td>
                 </tr>
             </tbody>
         </table>
