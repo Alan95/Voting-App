@@ -9773,3 +9773,12 @@ footer .margin-top-footer {
   opacity: 0;
 }
 
+.poll-header {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.resultlist {
+  padding-top: 2.5rem;
+}
+

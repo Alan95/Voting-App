@@ -6,8 +6,10 @@
  */
 
 require('./bootstrap');
+import VueChart from 'vue-chart-js';
 
 window.Vue = require('vue');
+Vue.use(VueChart);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

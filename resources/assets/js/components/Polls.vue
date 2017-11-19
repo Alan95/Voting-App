@@ -8,7 +8,6 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">Title</th>
                     <th scope="col">Choices</th>
                     <th scope="col">Link</th>
@@ -16,9 +15,8 @@
             </thead>
             <tbody>
                 <tr v-for="poll in polls">
-                <th scope="row">{{ poll.id }}</th>
                     <td class="poll-header">{{ poll.title }}</td>
-                    <td ><li class="list-group-item d-flex justify-content-between align-items-center" v-for="choice in poll.choices">{{ choice.name }}<span class="badge badge-primary badge-pill">{{ choice.votes }}</span></li></td>
+                    <td ><li class="d-flex justify-content-between align-items-center" v-for="choice in poll.choices">- {{ choice.name }}<span class="badge badge-primary badge-pill">{{ choice.votes }}</span></li></td>
                     <td><a class="btn btn-primary" target="_blank" :href="currentRoute(poll.url)">Click</a></td>
                 </tr>
             </tbody>

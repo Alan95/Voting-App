@@ -11,7 +11,23 @@
         </ul>  
         </template>
         <template v-if="view == 'result'">
-            <h1>Results</h1>
+            <div class="row">
+                <div class="col-5">
+                    <ul class="list-group resultlist">
+                        <li class="list-group-item d-flex justify-content-between align-items-center" v-for="choice in poll.choices">
+                            {{ choice.name }} <span class="badge badge-secondary badge-pill">{{ choice.votes }}</span>
+                        </li>    
+                     </ul>   
+                     <br>
+                     <div class="text-center">
+                        <button class="btn btn-secondary">Back</button>
+                     </div>
+                </div>
+                <div class="col-7">
+                    <vue-chart type="pie" :data="chartData"></vue-chart>
+                </div>        
+            </div>
+
         </template>
        <custom-footer></custom-footer>    
     </div>
@@ -20,6 +36,7 @@
 <script>
     import Nav from './Nav.vue';
     import Footer from './Footer.vue';
+    import VueChart from 'vue-chart-js'
     
     export default {
         props: ['poll'],
@@ -27,11 +44,30 @@
            console.log(this.poll)
         },
         components: {
-            
+           VueChart
         },
         data() {
             return {
-                view: 'vote'
+                view: 'vote',
+                chartData: {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: 'Component 1',
+                            data: [],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                            ]
+                        },
+                    ]
+                }
             }
         },
         methods: {
@@ -44,12 +80,28 @@
                         index: index
                     })
                     .then(response => {
-                    this.view = 'result'
+                    self.switchViewToResult();
+                    console.log(this.poll);
                     })
                     .catch(e => {
                     self.errors.push(e)
                     })
-            }   
+            },
+            visualizePoll(){
+                
+                this.poll.choices.forEach((item) => {
+                    this.chartData.labels.push(item.name);
+                    if(item.votes !== null){
+                        this.chartData.datasets[0].data.push(item.votes);
+                    }
+                });
+
+
+            },
+            switchViewToResult(){
+                this.visualizePoll();
+                this.view = 'result';
+            }
         },
         components: {
             'nav-voting': Nav,

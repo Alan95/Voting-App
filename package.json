@@ -20,6 +20,7 @@
     },
     "dependencies": {
         "bootstrap": "^4.0.0-beta.2",
+        "vue-chart-js": "^1.4.1",
         "vue-chartjs": "^3.0.2"
     }
 }

@@ -55,3 +55,12 @@ footer {
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0
 }
+
+.poll-header {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.resultlist {
+    padding-top: 2.5rem;
+}
