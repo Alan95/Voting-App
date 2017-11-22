@@ -27,8 +27,8 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/profile', 'HomeController@showProfile')->name('profile');
     Route::get('/logout', 'HomeController@loggingOut');
-    Route::get('/profile', 'HomeController@showProfile')->name('profile');
     Route::post('createPoll', 'PollController@createNewPoll');
+    Route::get('/api/polls', 'PollController@getPollsFromUser');
 
     Route::prefix('poll')->group(function(){
         Route::get('/{id}/edit', 'PollController@editPoll');

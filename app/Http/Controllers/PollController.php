@@ -6,10 +6,13 @@ use Illuminate\Http\Request;
 use App\Poll;
 use App\User;
 use Auth;
+use App\Traits\SpecificPoll;
 
 
 class PollController extends Controller
 {
+    use SpecificPoll;
+
     public function showAllPolls() 
     {
         $polls = Poll::all();
@@ -19,6 +22,12 @@ class PollController extends Controller
     public function editPoll($id)
     {
 
+    }
+
+    public function getPollsFromUser()
+    {
+        $polls = $this->getPollFromUser(Auth::user()->id);
+        return response()->json($polls);
     }
     
     public function showOnePoll($url)

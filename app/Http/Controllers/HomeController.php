@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Traits\SpecificPoll;
 
 class HomeController extends Controller
 {
+    use SpecificPoll;
     /**
      * Create a new controller instance.
      *
@@ -29,6 +31,7 @@ class HomeController extends Controller
 
     public function showProfile()
     {
+        //$polls = $this->getPollFromUser(Auth::user()->id);
         return view('profile');
     }
 

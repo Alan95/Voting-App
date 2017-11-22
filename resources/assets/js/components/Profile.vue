@@ -44,11 +44,11 @@
         <div class="card col-6 offset-md-3" v-if="activeView !== null && activeView === 'my'">
             <div class="card-body">
                 <h4 class="card-title">My Polls</h4>
-                <p class="card-text" v-if="polls === 0">
+                <p class="card-text" v-if="polls === null">
                     No Polls created.
                 </p>
                 <ul class="list-group" v-else>
-                    <li v-for="poll in polls">{{ polls.name }} <a class="btn btn-primary">Go</a></li>
+                    <a target="_blank" :href="routeToPoll(poll.url)" class="list-group-item list-group-item-action list-group-item-info" v-for="poll in polls">{{ poll.title }}</a>
                 </ul>   
              </div>   
         </div> 
@@ -82,10 +82,11 @@
     import Nav from './Nav.vue';
     import Footer from './Footer.vue'
     export default {
-        props: ["user", "polls"],
+        props: ["user"],
         data() {
             return {
                 activeView: 'new',
+                polls: null,
                 poll: {
                     name: null,
                     options: [{"votes": 0, "name": null}, {"votes": 0, "name": null}, { "votes": 0, "name": null}]
@@ -116,10 +117,18 @@
                     window.alert("Saved");
                     self.poll.name =  null;
                     self.poll.options = [{"name": null, "votes": 0}, {"name": null, "votes": 0}, {"name": null, "votes": 0}]
+                    self.getPolls();
                     })
                     .catch(e => {
                     self.errors.push(e);
                     })
+            },
+            routeToPoll(url) {
+                return '/poll/' + url;
+            },
+            getPolls() {
+                var self = this;
+                axios.get('/api/polls').then(response => { self.polls = response.data }).catch(e => { self.errors.push(e) });
             }
         },
         components: {
@@ -127,7 +136,7 @@
             'custom-footer': Footer
         },
         mounted() {
-            console.log(this.polls);
+            this.getPolls();
         },
     }
 </script>

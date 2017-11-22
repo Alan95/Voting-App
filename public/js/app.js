@@ -74635,14 +74635,20 @@ var render = function() {
         "div",
         { staticClass: "collapse navbar-collapse", attrs: { id: "navbarNav" } },
         [
-          _vm._m(1),
+          _c("ul", { staticClass: "navbar-nav mr-auto" }, [
+            _vm.user
+              ? _c("li", { staticClass: "nav-item active" }, [_vm._m(1)])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm._m(2)
+          ]),
           _vm._v(" "),
           !_vm.user
-            ? _c("ul", { staticClass: "navbar-nav ml-auto" }, [_vm._m(2)])
+            ? _c("ul", { staticClass: "navbar-nav ml-auto" }, [_vm._m(3)])
             : _vm._e(),
           _vm._v(" "),
           _vm.user
-            ? _c("ul", { staticClass: "navbar-nav ml-auto" }, [_vm._m(3)])
+            ? _c("ul", { staticClass: "navbar-nav ml-auto" }, [_vm._m(4)])
             : _vm._e()
         ]
       )
@@ -74666,18 +74672,18 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "navbar-nav mr-auto" }, [
-      _c("li", { staticClass: "nav-item active" }, [
-        _c("a", { staticClass: "nav-link", attrs: { href: "/profile" } }, [
-          _vm._v("Me"),
-          _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", { staticClass: "nav-item" }, [
-        _c("a", { staticClass: "nav-link", attrs: { href: "/polls" } }, [
-          _vm._v("Polls")
-        ])
+    return _c("a", { staticClass: "nav-link", attrs: { href: "/profile" } }, [
+      _vm._v("My Profile"),
+      _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "/polls" } }, [
+        _vm._v("Polls")
       ])
     ])
   },
@@ -75530,10 +75536,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ["user", "polls"],
+    props: ["user"],
     data: function data() {
         return {
             activeView: 'new',
+            polls: null,
             poll: {
                 name: null,
                 options: [{ "votes": 0, "name": null }, { "votes": 0, "name": null }, { "votes": 0, "name": null }]
@@ -75563,6 +75570,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 window.alert("Saved");
                 self.poll.name = null;
                 self.poll.options = [{ "name": null, "votes": 0 }, { "name": null, "votes": 0 }, { "name": null, "votes": 0 }];
+                self.getPolls();
+            }).catch(function (e) {
+                self.errors.push(e);
+            });
+        },
+        routeToPoll: function routeToPoll(url) {
+            return '/poll/' + url;
+        },
+        getPolls: function getPolls() {
+            var self = this;
+            axios.get('/api/polls').then(function (response) {
+                self.polls = response.data;
             }).catch(function (e) {
                 self.errors.push(e);
             });
@@ -75573,7 +75592,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         'custom-footer': __WEBPACK_IMPORTED_MODULE_1__Footer_vue___default.a
     },
     mounted: function mounted() {
-        console.log(this.polls);
+        this.getPolls();
     }
 });
 
@@ -75790,7 +75809,7 @@ var render = function() {
               _c("div", { staticClass: "card-body" }, [
                 _c("h4", { staticClass: "card-title" }, [_vm._v("My Polls")]),
                 _vm._v(" "),
-                _vm.polls === 0
+                _vm.polls === null
                   ? _c("p", { staticClass: "card-text" }, [
                       _vm._v(
                         "\n                No Polls created.\n            "
@@ -75800,12 +75819,18 @@ var render = function() {
                       "ul",
                       { staticClass: "list-group" },
                       _vm._l(_vm.polls, function(poll) {
-                        return _c("li", [
-                          _vm._v(_vm._s(_vm.polls.name) + " "),
-                          _c("a", { staticClass: "btn btn-primary" }, [
-                            _vm._v("Go")
-                          ])
-                        ])
+                        return _c(
+                          "a",
+                          {
+                            staticClass:
+                              "list-group-item list-group-item-action list-group-item-info",
+                            attrs: {
+                              target: "_blank",
+                              href: _vm.routeToPoll(poll.url)
+                            }
+                          },
+                          [_vm._v(_vm._s(poll.title))]
+                        )
                       })
                     )
               ])
