@@ -14,23 +14,16 @@
    <div class="form-style bg-dark rounded">
       <form class="form-horizontal" method="POST" action="{{ route('login') }}">
          {{ csrf_field() }}
-         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+         @if(session('message'))
+            <p class="alert alert-danger">{{ session('message') }}</p>
+         @endif
+         <div class="form-group">
             <label for="email" class="control-label text-white">E-Mail</label>
             <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-            @if ($errors->has('email'))
-            <span class="help-block">
-            <strong class="text-danger">{{ $errors->first('email') }}</strong>
-            </span>
-            @endif
          </div>
-         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+         <div class="form-group">
             <label for="password" class="control-label text-white">Password</label>
             <input id="password" type="password" class="form-control" name="password" required>
-            @if ($errors->has('password'))
-            <span class="help-block">
-            <strong class="text-danger">{{ $errors->first('password') }}</strong>
-            </span>
-            @endif
          </div>
          <div class="form-group">
             <div class="checkbox">

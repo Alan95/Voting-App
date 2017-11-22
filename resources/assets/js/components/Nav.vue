@@ -4,26 +4,22 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/profile">Me<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/polls">Polls</a>
+                </li>
+                 
+            </ul>    
+            <ul v-if="!user" class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">Login</a>
                 </li>
             </ul>    
-            <ul class="navbar-nav ml-auto">
-                <template v-if="!user">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/profile">Login</a>
-                    </li>
-                </template>
-                <template v-else>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/profile">My Polls</a>
-+                   </li>   
-+                   <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
-                    </li>    
-                </template>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/polls">Polls</a>
-                    </li>
+            <ul v-if="user" class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
             </ul>
         </div>
     </nav>

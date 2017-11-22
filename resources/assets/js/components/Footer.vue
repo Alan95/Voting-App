@@ -8,9 +8,9 @@
                 <span class="text-white">Made by Alan</span>
             </div>
             <div class="col">
-                <button class="btn btn-secondary"><i class="fa fa-github text-white" aria-hidden="true"></i></button>
-                <button class="btn btn-success"><i class="fa fa-free-code-camp" aria-hidden="true"></i></button>
-                <button class="btn btn-primary"><i class="fa fa-linkedin-square" aria-hidden="true"></i></button>
+                <a href="https://github.com/Alan95" target="_blank" class="btn btn-secondary"><i class="fa fa-github text-white" aria-hidden="true"></i></a>
+                <a href="https://www.freecodecamp.org/alan95" target="_blank" class="btn btn-success"><i class="fa fa-free-code-camp" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/alan-saber-843573143/" target="_blank" class="btn btn-primary"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
             </div>
         </div>        
 </footer>

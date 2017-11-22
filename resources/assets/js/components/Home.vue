@@ -3,7 +3,7 @@
     <nav-voting :user="user"></nav-voting> 
     <div class="main-text">
         <h1 class="display-3">Voting App</h1>
-        <p class="lead">Create Polls and share your Polls with everyone!</p>
+        <p class="lead">Create Polls and share them with everyone!</p>
         <hr class="my-4">
         <p class="lead">
             <a class="btn btn-primary btn-lg" role="button" href="/register">Register Now</a>

@@ -28,6 +28,7 @@
                             <label>Options</label>
                             <template v-for="(option, ind) in poll.options">
                                 <input :key="ind" class="form-control" type="text" v-model="poll.options[ind].name" :name="'option'+ ind" />
+                                <br>
                             </template>
                         </div>
                         <div style="margin-bottom: 5px;">
@@ -43,10 +44,12 @@
         <div class="card col-6 offset-md-3" v-if="activeView !== null && activeView === 'my'">
             <div class="card-body">
                 <h4 class="card-title">My Polls</h4>
-                <p class="card-text">
-
+                <p class="card-text" v-if="polls === 0">
                     No Polls created.
                 </p>
+                <ul class="list-group" v-else>
+                    <li v-for="poll in polls">{{ polls.name }} <a class="btn btn-primary">Go</a></li>
+                </ul>   
              </div>   
         </div> 
         <div class="card col-6 offset-md-3" v-if="activeView !== null && activeView === 'edit'">
@@ -115,13 +118,16 @@
                     self.poll.options = [{"name": null, "votes": 0}, {"name": null, "votes": 0}, {"name": null, "votes": 0}]
                     })
                     .catch(e => {
-                    self.errors.push(e)
+                    self.errors.push(e);
                     })
             }
         },
         components: {
             'nav-voting': Nav,
             'custom-footer': Footer
+        },
+        mounted() {
+            console.log(this.polls);
         },
     }
 </script>

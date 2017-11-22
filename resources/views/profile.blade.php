@@ -3,7 +3,7 @@
 <div class="container">
     @auth
     <div id="app">
-        <profile :user="{{ Auth::user() }}"></profile>
+        <profile :user="{{ Auth::user() }}" :polls="{{ session()->get('polls') }}"></profile>
     </div>    
     @endauth
     @guest

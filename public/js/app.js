@@ -74606,10 +74606,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ["user"],
@@ -74641,18 +74637,13 @@ var render = function() {
         [
           _vm._m(1),
           _vm._v(" "),
-          _c(
-            "ul",
-            { staticClass: "navbar-nav ml-auto" },
-            [
-              !_vm.user
-                ? [_vm._m(2)]
-                : [_vm._m(3), _vm._v("   \n+                   "), _vm._m(4)],
-              _vm._v(" "),
-              _vm._m(5)
-            ],
-            2
-          )
+          !_vm.user
+            ? _c("ul", { staticClass: "navbar-nav ml-auto" }, [_vm._m(2)])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.user
+            ? _c("ul", { staticClass: "navbar-nav ml-auto" }, [_vm._m(3)])
+            : _vm._e()
         ]
       )
     ]
@@ -74677,9 +74668,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("ul", { staticClass: "navbar-nav mr-auto" }, [
       _c("li", { staticClass: "nav-item active" }, [
-        _c("a", { staticClass: "nav-link", attrs: { href: "/" } }, [
-          _vm._v("Home "),
+        _c("a", { staticClass: "nav-link", attrs: { href: "/profile" } }, [
+          _vm._v("Me"),
           _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "nav-item" }, [
+        _c("a", { staticClass: "nav-link", attrs: { href: "/polls" } }, [
+          _vm._v("Polls")
         ])
       ])
     ])
@@ -74699,29 +74696,8 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("li", { staticClass: "nav-item" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "/profile" } }, [
-        _vm._v("My Polls")
-      ]),
-      _vm._v("\n+                   ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
       _c("a", { staticClass: "nav-link", attrs: { href: "/logout" } }, [
         _vm._v("Logout")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "/polls" } }, [
-        _vm._v("Polls")
       ])
     ])
   }
@@ -74796,26 +74772,53 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col" }, [
-          _c("button", { staticClass: "btn btn-secondary" }, [
-            _c("i", {
-              staticClass: "fa fa-github text-white",
-              attrs: { "aria-hidden": "true" }
-            })
-          ]),
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-secondary",
+              attrs: { href: "https://github.com/Alan95", target: "_blank" }
+            },
+            [
+              _c("i", {
+                staticClass: "fa fa-github text-white",
+                attrs: { "aria-hidden": "true" }
+              })
+            ]
+          ),
           _vm._v(" "),
-          _c("button", { staticClass: "btn btn-success" }, [
-            _c("i", {
-              staticClass: "fa fa-free-code-camp",
-              attrs: { "aria-hidden": "true" }
-            })
-          ]),
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-success",
+              attrs: {
+                href: "https://www.freecodecamp.org/alan95",
+                target: "_blank"
+              }
+            },
+            [
+              _c("i", {
+                staticClass: "fa fa-free-code-camp",
+                attrs: { "aria-hidden": "true" }
+              })
+            ]
+          ),
           _vm._v(" "),
-          _c("button", { staticClass: "btn btn-primary" }, [
-            _c("i", {
-              staticClass: "fa fa-linkedin-square",
-              attrs: { "aria-hidden": "true" }
-            })
-          ])
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-primary",
+              attrs: {
+                href: "https://www.linkedin.com/in/alan-saber-843573143/",
+                target: "_blank"
+              }
+            },
+            [
+              _c("i", {
+                staticClass: "fa fa-linkedin-square",
+                attrs: { "aria-hidden": "true" }
+              })
+            ]
+          )
         ])
       ])
     ])
@@ -74859,7 +74862,7 @@ var staticRenderFns = [
       _c("h1", { staticClass: "display-3" }, [_vm._v("Voting App")]),
       _vm._v(" "),
       _c("p", { staticClass: "lead" }, [
-        _vm._v("Create Polls and share your Polls with everyone!")
+        _vm._v("Create Polls and share them with everyone!")
       ]),
       _vm._v(" "),
       _c("hr", { staticClass: "my-4" }),
@@ -75520,6 +75523,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -75565,6 +75571,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     components: {
         'nav-voting': __WEBPACK_IMPORTED_MODULE_0__Nav_vue___default.a,
         'custom-footer': __WEBPACK_IMPORTED_MODULE_1__Footer_vue___default.a
+    },
+    mounted: function mounted() {
+        console.log(this.polls);
     }
 });
 
@@ -75729,7 +75738,9 @@ var render = function() {
                                 )
                               }
                             }
-                          })
+                          }),
+                          _vm._v(" "),
+                          _c("br")
                         ]
                       })
                     ],
@@ -75779,9 +75790,24 @@ var render = function() {
               _c("div", { staticClass: "card-body" }, [
                 _c("h4", { staticClass: "card-title" }, [_vm._v("My Polls")]),
                 _vm._v(" "),
-                _c("p", { staticClass: "card-text" }, [
-                  _vm._v("\n\n                No Polls created.\n            ")
-                ])
+                _vm.polls === 0
+                  ? _c("p", { staticClass: "card-text" }, [
+                      _vm._v(
+                        "\n                No Polls created.\n            "
+                      )
+                    ])
+                  : _c(
+                      "ul",
+                      { staticClass: "list-group" },
+                      _vm._l(_vm.polls, function(poll) {
+                        return _c("li", [
+                          _vm._v(_vm._s(_vm.polls.name) + " "),
+                          _c("a", { staticClass: "btn btn-primary" }, [
+                            _vm._v("Go")
+                          ])
+                        ])
+                      })
+                    )
               ])
             ])
           : _vm._e(),
