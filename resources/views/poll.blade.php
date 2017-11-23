@@ -2,8 +2,8 @@
 @section('content')
 <div class="container">
     <div id="app">
-    @if(isset($poll))
-        <poll :poll="{{ $poll }}"></poll>
+    @if(isset($pollId))
+        <poll :pollid="{{ $pollId }}"></poll>
     @else
     
         <div class="text-center">

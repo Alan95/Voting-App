@@ -29,6 +29,9 @@ Route::middleware('auth')->group(function(){
     Route::get('/logout', 'HomeController@loggingOut');
     Route::post('createPoll', 'PollController@createNewPoll');
     Route::get('/api/polls', 'PollController@getPollsFromUser');
+    Route::get('/api/user', 'UserController@getCurrentUser');
+    Route::post('/api/save', 'UserController@saveChanges');
+    Route::get('/api/poll/{id}', 'PollController@getOnePoll');
 
     Route::prefix('poll')->group(function(){
         Route::get('/{id}/edit', 'PollController@editPoll');

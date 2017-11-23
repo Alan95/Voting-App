@@ -74605,7 +74605,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ["user"],
@@ -74645,11 +74644,7 @@ var render = function() {
           _vm._v(" "),
           !_vm.user
             ? _c("ul", { staticClass: "navbar-nav ml-auto" }, [_vm._m(3)])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.user
-            ? _c("ul", { staticClass: "navbar-nav ml-auto" }, [_vm._m(4)])
-            : _vm._e()
+            : _c("ul", { staticClass: "navbar-nav ml-auto" }, [_vm._m(4)])
         ]
       )
     ]
@@ -75212,9 +75207,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
-    props: ['poll'],
+    props: ['pollid'],
     mounted: function mounted() {
-        console.log(this.poll);
+        console.log(this.pollid);
+        this.getPoll();
     },
 
     components: {
@@ -75223,6 +75219,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     data: function data() {
         return {
             view: 'vote',
+            poll: {
+                id: null,
+                name: null,
+                choices: {}
+            },
             chartData: {
                 labels: [],
                 datasets: [{
@@ -75230,14 +75231,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     data: [],
                     backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)', 'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)']
                 }]
-            }
+            },
+            errors: []
         };
     },
 
     methods: {
+        getPoll: function getPoll() {
+            var self = this;
+            axios.get('/api/poll/' + self.pollid).then(function (response) {
+                self.poll = response.data;
+            }).catch(function (e) {
+                self.errors.push(e);
+            });
+        },
         vote: function vote(choice, index) {
-            var _this = this;
-
             var self = this;
             console.log(choice, index);
             axios.post('/poll/vote', {
@@ -75246,24 +75254,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 index: index
             }).then(function (response) {
                 self.switchViewToResult();
-                console.log(_this.poll);
+                self.poll = response.data;
             }).catch(function (e) {
                 self.errors.push(e);
             });
         },
         visualizePoll: function visualizePoll() {
-            var _this2 = this;
+            var _this = this;
 
+            this.chartData.labels = [];
+            this.chartData.datasets[0].data = [];
             this.poll.choices.forEach(function (item) {
-                _this2.chartData.labels.push(item.name);
+                _this.chartData.labels.push(item.name);
                 if (item.votes !== null) {
-                    _this2.chartData.datasets[0].data.push(item.votes);
+                    _this.chartData.datasets[0].data.push(item.votes);
                 }
             });
         },
         switchViewToResult: function switchViewToResult() {
             this.visualizePoll();
             this.view = 'result';
+        },
+        switchViewToVote: function switchViewToVote() {
+            this.view = 'vote';
         }
     }
 }, 'components', {
@@ -75353,7 +75366,16 @@ var render = function() {
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
-                _vm._m(0)
+                _c("div", { staticClass: "text-center" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary",
+                      on: { click: _vm.switchViewToVote }
+                    },
+                    [_vm._v("Back")]
+                  )
+                ])
               ]),
               _vm._v(" "),
               _c(
@@ -75375,16 +75397,7 @@ var render = function() {
     2
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center" }, [
-      _c("button", { staticClass: "btn btn-secondary" }, [_vm._v("Back")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -75536,11 +75549,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ["user"],
+    props: [],
     data: function data() {
         return {
             activeView: 'new',
             polls: null,
+            user: {
+                name: null,
+                email: null,
+                password: null
+            },
             poll: {
                 name: null,
                 options: [{ "votes": 0, "name": null }, { "votes": 0, "name": null }, { "votes": 0, "name": null }]
@@ -75575,6 +75593,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 self.errors.push(e);
             });
         },
+        saveUserChanges: function saveUserChanges() {
+            var self = this;
+            axios.post('/api/save', {
+                user: self.user
+            }).then(function (response) {
+                window.alert("Saved");
+                self.getUser();
+            }).catch(function (e) {
+                self.errors.push(e);
+            });
+        },
         routeToPoll: function routeToPoll(url) {
             return '/poll/' + url;
         },
@@ -75582,6 +75611,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var self = this;
             axios.get('/api/polls').then(function (response) {
                 self.polls = response.data;
+            }).catch(function (e) {
+                self.errors.push(e);
+            });
+        },
+        getUser: function getUser() {
+            var self = this;
+            axios.get('/api/user').then(function (response) {
+                self.user = response.data;
             }).catch(function (e) {
                 self.errors.push(e);
             });
@@ -75593,6 +75630,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     mounted: function mounted() {
         this.getPolls();
+        this.getUser();
     }
 });
 
@@ -75844,7 +75882,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("p", { staticClass: "card-text" }),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "name" } }, [_vm._v("Title")]),
+                  _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -75929,9 +75967,18 @@ var render = function() {
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
-                _c("button", { staticClass: "btn btn-success" }, [
-                  _vm._v("Save")
-                ]),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success",
+                    on: {
+                      click: function($event) {
+                        _vm.saveUserChanges()
+                      }
+                    }
+                  },
+                  [_vm._v("Save")]
+                ),
                 _vm._v(" "),
                 _c("p")
               ])

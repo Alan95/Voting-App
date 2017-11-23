@@ -20,7 +20,7 @@
                      </ul>   
                      <br>
                      <div class="text-center">
-                        <button class="btn btn-secondary">Back</button>
+                        <button class="btn btn-secondary" @click="switchViewToVote">Back</button>
                      </div>
                 </div>
                 <div class="col-7">
@@ -39,9 +39,10 @@
     import VueChart from 'vue-chart-js'
     
     export default {
-        props: ['poll'],
+        props: ['pollid'],
         mounted() {
-           console.log(this.poll)
+           console.log(this.pollid);
+           this.getPoll();
         },
         components: {
            VueChart
@@ -49,6 +50,11 @@
         data() {
             return {
                 view: 'vote',
+                poll: {
+                    id: null,
+                    name: null,
+                    choices: {},
+                },
                 chartData: {
                     labels: [],
                     datasets: [
@@ -67,10 +73,15 @@
                             ]
                         },
                     ]
-                }
+                },
+                errors: []
             }
         },
         methods: {
+            getPoll() {
+                var self = this;
+                axios.get('/api/poll/' + self.pollid).then(response => { self.poll = response.data }).catch(e => { self.errors.push(e)})
+            },
             vote(choice, index) {
                 var self = this;
                 console.log(choice, index);
@@ -81,14 +92,15 @@
                     })
                     .then(response => {
                     self.switchViewToResult();
-                    console.log(this.poll);
+                    self.poll = response.data;
                     })
                     .catch(e => {
                     self.errors.push(e)
                     })
             },
             visualizePoll(){
-                
+                this.chartData.labels = [];
+                this.chartData.datasets[0].data = [];
                 this.poll.choices.forEach((item) => {
                     this.chartData.labels.push(item.name);
                     if(item.votes !== null){
@@ -101,6 +113,9 @@
             switchViewToResult(){
                 this.visualizePoll();
                 this.view = 'result';
+            },
+            switchViewToVote(){
+                this.view = 'vote';
             }
         },
         components: {

@@ -9,14 +9,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/polls">Polls</a>
                 </li>
-                 
             </ul>    
             <ul v-if="!user" class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="/profile">Login</a>
                 </li>
             </ul>    
-            <ul v-if="user" class="navbar-nav ml-auto">
+            <ul v-else class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>
                 </li>

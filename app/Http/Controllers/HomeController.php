@@ -31,7 +31,6 @@ class HomeController extends Controller
 
     public function showProfile()
     {
-        //$polls = $this->getPollFromUser(Auth::user()->id);
         return view('profile');
     }
 

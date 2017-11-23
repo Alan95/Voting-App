@@ -57,7 +57,7 @@
                 <h4 class="card-title">Edit User</h4>
                 <p class="card-text">
                      <div class="form-group">
-                        <label for="name">Title</label>
+                        <label for="name">Name</label>
                         <input type="text" class="form-control" v-model="user.name" name="name" />
                      </div>
                     <div class="form-group">
@@ -69,7 +69,7 @@
                         <input type="password" placeholder="Set your new password" class="form-control" v-model="user.password" name="password" />
                     </div>
                     <br>
-                    <button class="btn btn-success">Save</button>
+                    <button class="btn btn-success" @click="saveUserChanges()">Save</button>
                 </p>
              </div>   
         </div> 
@@ -82,11 +82,16 @@
     import Nav from './Nav.vue';
     import Footer from './Footer.vue'
     export default {
-        props: ["user"],
+        props: [],
         data() {
             return {
                 activeView: 'new',
                 polls: null,
+                user: {
+                    name: null,
+                    email: null,
+                    password: null
+                },
                 poll: {
                     name: null,
                     options: [{"votes": 0, "name": null}, {"votes": 0, "name": null}, { "votes": 0, "name": null}]
@@ -123,12 +128,29 @@
                     self.errors.push(e);
                     })
             },
+            saveUserChanges() {
+                var self = this;
+                axios.post('/api/save', {
+                        user: self.user
+                    })
+                    .then(response => {
+                        window.alert("Saved");
+                        self.getUser();
+                    })
+                    .catch(e => {
+                        self.errors.push(e);
+                    })
+            },
             routeToPoll(url) {
                 return '/poll/' + url;
             },
             getPolls() {
                 var self = this;
                 axios.get('/api/polls').then(response => { self.polls = response.data }).catch(e => { self.errors.push(e) });
+            },
+            getUser(){
+                var self = this;
+                axios.get('/api/user').then(response => { self.user = response.data }).catch(e => { self.errors.push(e) });
             }
         },
         components: {
@@ -137,6 +159,7 @@
         },
         mounted() {
             this.getPolls();
+            this.getUser();
         },
     }
 </script>

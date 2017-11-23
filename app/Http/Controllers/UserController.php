@@ -35,14 +35,29 @@ class UserController extends BaseController
         return redirect()->route('profile');
     }
 
-    public function editUser()
+    public function getCurrentUser()
     {
-
+        $user = Auth::user();
+        return response()->json($user);
     }
 
-
-    public function deleteUser()
+    public function saveChanges(Request $request)
     {
+        $user = Auth::user();
+        if($request->user['email'] !== null){
+            $user->email = $request->user['email'];
+        }
         
+        if($request->user['name'] !== null){
+            $user->name = $request->user['name'];
+        }
+
+        if($request->user['password'] !== null){
+            $user->password = Hash::make($request->user['password']);
+        }
+        
+        $user->save();
+        return response(200);
     }
+
 }

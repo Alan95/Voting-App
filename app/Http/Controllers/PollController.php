@@ -19,11 +19,6 @@ class PollController extends Controller
         return view('polls')->with('polls', $polls);
     }
 
-    public function editPoll($id)
-    {
-
-    }
-
     public function getPollsFromUser()
     {
         $polls = $this->getPollFromUser(Auth::user()->id);
@@ -33,12 +28,13 @@ class PollController extends Controller
     public function showOnePoll($url)
     {
         $poll = Poll::where('url', '=', $url)->first();
-        return view('poll')->with('poll', $poll);
+        return view('poll')->with('pollId', $poll['id']);
     }
 
-    public function deletePoll($id)
+    public function getOnePoll($id)
     {
-
+        $poll = Poll::findOrFail($id);
+        return response()->json($poll);
     }
 
     public function createNewPoll(Request $request)
@@ -75,6 +71,6 @@ class PollController extends Controller
 
         $poll->choices = $restArray;
         $poll->save();
-        return 200;
+        return response()->json($poll);
     }
 }

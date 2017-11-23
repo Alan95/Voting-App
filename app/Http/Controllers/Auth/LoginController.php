@@ -34,7 +34,6 @@ class LoginController extends Controller
         $password = $request->password;
         
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
-            //$polls = $this->getPollFromUser(Auth::user()->id);
             return redirect()->route('profile');
         } else {
             return back()->withInput()->with('message', 'Wrong email/password combination.');
