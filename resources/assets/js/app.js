@@ -7,7 +7,6 @@
 
 require('./bootstrap');
 import VueChart from 'vue-chart-js';
-
 window.Vue = require('vue');
 Vue.use(VueChart);
 
@@ -23,6 +22,9 @@ Vue.component('polls', require('./components/Polls.vue'));
 Vue.component('poll', require('./components/Poll.vue'));
 Vue.component('profile', require('./components/Profile.vue'));
 
+import { store } from './store'
+
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    store
 });

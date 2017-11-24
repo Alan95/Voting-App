@@ -41,7 +41,6 @@
     export default {
         props: ['pollid'],
         mounted() {
-           console.log(this.pollid);
            this.getPoll();
         },
         components: {

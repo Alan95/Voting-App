@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav-voting :user="user"></nav-voting>
+        <nav-voting></nav-voting>
         <br>
         <div class="jumbotron">
             <h5 class="text-center">Welcome, {{ user.name }} !</h5>
@@ -82,7 +82,6 @@
     import Nav from './Nav.vue';
     import Footer from './Footer.vue'
     export default {
-        props: [],
         data() {
             return {
                 activeView: 'new',

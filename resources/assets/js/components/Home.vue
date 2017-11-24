@@ -1,6 +1,6 @@
 <template>
 <div>
-    <nav-voting :user="user"></nav-voting> 
+    <nav-voting></nav-voting> 
     <div class="main-text">
         <h1 class="display-3">Voting App</h1>
         <p class="lead">Create Polls and share them with everyone!</p>
@@ -16,11 +16,13 @@
 <script>
     import Nav from './Nav.vue';
     import Footer from './Footer.vue';
-
+ 
     export default {
-        props: ['user'],
         mounted() {
             
+        },
+        computed: {
+
         },
         data() {
             return {

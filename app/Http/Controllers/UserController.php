@@ -60,4 +60,13 @@ class UserController extends BaseController
         return response(200);
     }
 
+    public function isLoggedIn()
+    {
+        if(Auth::user()){
+            return response()->json(Auth::user());
+        } else {
+            return response()->json(false);
+        }
+    }
+
 }

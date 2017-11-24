@@ -25,10 +25,10 @@
 </template>
 
 <script>
+    
     export default {
-        props: ["user"],
         mounted() {
-            
+            this.$store.dispatch('fetchUser')
         },
         data() {
             return {
@@ -36,7 +36,9 @@
             }
         },
         computed: {
-
+            user() {
+                return this.$store.getters.user
+            }
         },
     }
 </script>
