@@ -44,20 +44,22 @@ class UserController extends BaseController
     public function saveChanges(Request $request)
     {
         $user = Auth::user();
-        if($request->user['email'] !== null){
-            $user->email = $request->user['email'];
-        }
-        
-        if($request->user['name'] !== null){
-            $user->name = $request->user['name'];
-        }
+        if($user){
+            if(isset($request->user['email']) && $request->user['email'] !== null){
+                $user->email = $request->user['email'];
+            }
+            
+            if(isset($request->user['name']) && $request->user['name'] !== null){
+                $user->name = $request->user['name'];
+            }
 
-        if($request->user['password'] !== null){
-            $user->password = Hash::make($request->user['password']);
+            if(isset($request->user['password']) && $request->user['password'] !== null){
+                $user->password = Hash::make($request->user['password']);
+            }
+            
+            $user->save();
+            return response(200);
         }
-        
-        $user->save();
-        return response(200);
     }
 
     public function isLoggedIn()

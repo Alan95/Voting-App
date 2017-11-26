@@ -9786,3 +9786,13 @@ footer .margin-top-footer {
   margin-bottom: 5px;
 }
 
+.border-item {
+  border: lightskyblue 2px solid;
+  margin-bottom: 5px;
+}
+
+.trash {
+  margin-top: -10px;
+  cursor: pointer;
+}
+

@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/api/user', 'UserController@getCurrentUser');
     Route::post('/api/save', 'UserController@saveChanges');
     Route::get('/api/poll/{id}', 'PollController@getOnePoll');
+    Route::delete('/api/delete/post/{id}', 'PollController@deletePoll');
 
     Route::prefix('poll')->group(function(){
         Route::get('/{id}/edit', 'PollController@editPoll');

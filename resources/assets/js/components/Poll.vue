@@ -7,7 +7,11 @@
         </div>
         <template v-if="view == 'vote'">
         <ul class="list-group" v-for="(choice, ind) in poll.choices">
-            <li class="list-group-item col-4 offset-4 d-flex justify-content-between align-items-center">{{ choice.name}} <button @click="vote(choice.name, ind)"class="btn btn-primary">Vote</button></li>
+            <li class="list-group-item col-4 offset-4 d-flex justify-content-between align-items-center">{{ choice.name}} 
+                <button @click="vote(choice.name, ind)"class="btn btn-primary">
+                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                </button>
+            </li>
         </ul>  
         </template>
         <template v-if="view == 'result'">
@@ -90,8 +94,8 @@
                         index: index
                     })
                     .then(response => {
+                    self.poll = response.data;    
                     self.switchViewToResult();
-                    self.poll = response.data;
                     })
                     .catch(e => {
                     self.errors.push(e)
@@ -103,7 +107,7 @@
                 this.poll.choices.forEach((item) => {
                     this.chartData.labels.push(item.name);
                     if(item.votes !== null){
-                        this.chartData.datasets[0].data.push(item.votes);
+                       this.chartData.datasets[0].data.push(item.votes);
                     }
                 });
 

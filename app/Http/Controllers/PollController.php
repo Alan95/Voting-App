@@ -24,6 +24,12 @@ class PollController extends Controller
         $polls = $this->getPollFromUser(Auth::user()->id);
         return response()->json($polls);
     }
+
+    public function deletePoll($id){
+        $poll = Poll::findOrFail($id);
+        $poll->delete();
+        return 200;
+    }
     
     public function showOnePoll($url)
     {
@@ -44,9 +50,16 @@ class PollController extends Controller
         
         $poll->title = $request->name;
         $poll->choices = $request->options;
-        $poll->url = str_slug($request->name, "-");
+        $slug = str_slug($request->name, "-");
+        $poll->url = $slug;
+
+        $clone = Poll::where('url', '=', $slug)->first();
+        if($clone !== null){
+            return response(400);
+        }
+         
         $user->polls()->save($poll);
-        return 200;
+        return response()->json($poll->url);
     }
 
     public function vote(Request $request)

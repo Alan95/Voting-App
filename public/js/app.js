@@ -5338,9 +5338,9 @@ module.exports = {
 var disposed = false
 var normalizeComponent = __webpack_require__(6)
 /* script */
-var __vue_script__ = __webpack_require__(219)
+var __vue_script__ = __webpack_require__(217)
 /* template */
-var __vue_template__ = __webpack_require__(220)
+var __vue_template__ = __webpack_require__(218)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -5732,9 +5732,9 @@ helpers.getValueAtIndexOrDefault = helpers.valueAtIndexOrDefault;
 var disposed = false
 var normalizeComponent = __webpack_require__(6)
 /* script */
-var __vue_script__ = __webpack_require__(221)
+var __vue_script__ = __webpack_require__(219)
 /* template */
-var __vue_template__ = __webpack_require__(222)
+var __vue_template__ = __webpack_require__(220)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -29003,7 +29003,7 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11), __webpack_require__(214).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11), __webpack_require__(213).setImmediate))
 
 /***/ }),
 /* 140 */
@@ -29021,7 +29021,7 @@ module.exports = __webpack_require__(233);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chart_js__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_chart_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store__ = __webpack_require__(231);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -29040,11 +29040,11 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_chart_js___default.a);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('home', __webpack_require__(217));
+Vue.component('home', __webpack_require__(215));
 Vue.component('nav-voting', __webpack_require__(8));
-Vue.component('polls', __webpack_require__(224));
-Vue.component('poll', __webpack_require__(227));
-Vue.component('profile', __webpack_require__(230));
+Vue.component('polls', __webpack_require__(222));
+Vue.component('poll', __webpack_require__(225));
+Vue.component('profile', __webpack_require__(228));
 
 
 
@@ -74235,48 +74235,6 @@ module.exports = function(Chart) {
 
 /***/ }),
 /* 213 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return store; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(139);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(216);
-
-
-
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
-
-var api = '/api/login';
-
-var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
-    state: {
-        user: false
-    },
-    mutations: {
-        fetchUser: function fetchUser(state) {
-            axios.get(api).then(function (res) {
-                state.user = res.data;
-            }).catch(function (err) {
-                console.log(err);
-            });
-        }
-    },
-    actions: {
-        fetchUser: function fetchUser(_ref) {
-            var commit = _ref.commit;
-            return commit('fetchUser');
-        }
-    },
-    getters: {
-        user: function user(state) {
-            return state.user;
-        }
-    }
-});
-
-/***/ }),
-/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var apply = Function.prototype.apply;
@@ -74329,13 +74287,13 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(215);
+__webpack_require__(214);
 exports.setImmediate = setImmediate;
 exports.clearImmediate = clearImmediate;
 
 
 /***/ }),
-/* 215 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -74528,7 +74486,1732 @@ exports.clearImmediate = clearImmediate;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11), __webpack_require__(15)))
 
 /***/ }),
+/* 215 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(6)
+/* script */
+var __vue_script__ = __webpack_require__(216)
+/* template */
+var __vue_template__ = __webpack_require__(221)
+/* template functional */
+  var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\Home.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-85ef4954", Component.options)
+  } else {
+    hotAPI.reload("data-v-85ef4954", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
 /* 216 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Nav_vue__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Nav_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Nav_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Footer_vue__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Footer_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Footer_vue__);
+var _mounted$computed$dat;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (_mounted$computed$dat = {
+    mounted: function mounted() {},
+
+    computed: {},
+    data: function data() {
+        return {};
+    }
+}, _defineProperty(_mounted$computed$dat, 'computed', {}), _defineProperty(_mounted$computed$dat, 'components', {
+    'nav-voting': __WEBPACK_IMPORTED_MODULE_0__Nav_vue___default.a,
+    'custom-footer': __WEBPACK_IMPORTED_MODULE_1__Footer_vue___default.a
+}), _mounted$computed$dat);
+
+/***/ }),
+/* 217 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {
+        this.$store.dispatch('fetchUser');
+    },
+    data: function data() {
+        return {};
+    },
+
+    computed: {
+        user: function user() {
+            return this.$store.getters.user;
+        }
+    }
+});
+
+/***/ }),
+/* 218 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "nav",
+    { staticClass: "navbar navbar-expand-lg navbar-dark bg-dark" },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "collapse navbar-collapse", attrs: { id: "navbarNav" } },
+        [
+          _c("ul", { staticClass: "navbar-nav mr-auto" }, [
+            _vm.user
+              ? _c("li", { staticClass: "nav-item active" }, [_vm._m(1)])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm._m(2)
+          ]),
+          _vm._v(" "),
+          !_vm.user
+            ? _c("ul", { staticClass: "navbar-nav ml-auto" }, [_vm._m(3)])
+            : _c("ul", { staticClass: "navbar-nav ml-auto" }, [_vm._m(4)])
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "navbar-brand", attrs: { href: "/" } }, [
+      _c("i", {
+        staticClass: "fa fa-telegram",
+        attrs: { "aria-hidden": "true" }
+      }),
+      _vm._v(" Voting")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "nav-link", attrs: { href: "/profile" } }, [
+      _vm._v("My Profile"),
+      _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "/polls" } }, [
+        _vm._v("Polls")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "/profile" } }, [
+        _vm._v("Login")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "/logout" } }, [
+        _vm._v("Logout")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-b03f2208", module.exports)
+  }
+}
+
+/***/ }),
+/* 219 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {},
+    data: function data() {
+        return {};
+    },
+
+    computed: {}
+});
+
+/***/ }),
+/* 220 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", { staticClass: "text-center rounded bg-dark" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col margin-top-footer" }, [
+          _c("span", { staticClass: "text-white" }, [
+            _vm._v("Copyright © 2017")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col margin-top-footer" }, [
+          _c("span", { staticClass: "text-white" }, [_vm._v("Made by Alan")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-secondary",
+              attrs: { href: "https://github.com/Alan95", target: "_blank" }
+            },
+            [
+              _c("i", {
+                staticClass: "fa fa-github text-white",
+                attrs: { "aria-hidden": "true" }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-success",
+              attrs: {
+                href: "https://www.freecodecamp.org/alan95",
+                target: "_blank"
+              }
+            },
+            [
+              _c("i", {
+                staticClass: "fa fa-free-code-camp",
+                attrs: { "aria-hidden": "true" }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-primary",
+              attrs: {
+                href: "https://www.linkedin.com/in/alan-saber-843573143/",
+                target: "_blank"
+              }
+            },
+            [
+              _c("i", {
+                staticClass: "fa fa-linkedin-square",
+                attrs: { "aria-hidden": "true" }
+              })
+            ]
+          )
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0ae3fb5c", module.exports)
+  }
+}
+
+/***/ }),
+/* 221 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("nav-voting"),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("custom-footer")
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "main-text" }, [
+      _c("h1", { staticClass: "display-3" }, [_vm._v("Voting App")]),
+      _vm._v(" "),
+      _c("p", { staticClass: "lead" }, [
+        _vm._v("Create Polls and share them with everyone!")
+      ]),
+      _vm._v(" "),
+      _c("hr", { staticClass: "my-4" }),
+      _vm._v(" "),
+      _c("p", { staticClass: "lead" }, [
+        _c(
+          "a",
+          {
+            staticClass: "btn btn-primary btn-lg",
+            attrs: { role: "button", href: "/register" }
+          },
+          [_vm._v("Register Now")]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-85ef4954", module.exports)
+  }
+}
+
+/***/ }),
+/* 222 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(6)
+/* script */
+var __vue_script__ = __webpack_require__(223)
+/* template */
+var __vue_template__ = __webpack_require__(224)
+/* template functional */
+  var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\Polls.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-60ddd9ad", Component.options)
+  } else {
+    hotAPI.reload("data-v-60ddd9ad", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 223 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Nav_vue__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Nav_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Nav_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Footer_vue__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Footer_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Footer_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['polls'],
+    mounted: function mounted() {
+        console.log(this.polls);
+    },
+    data: function data() {
+        return {};
+    },
+
+    methods: {
+        currentRoute: function currentRoute(url) {
+            return '/poll/' + url;
+        }
+    },
+    components: {
+        'nav-voting': __WEBPACK_IMPORTED_MODULE_0__Nav_vue___default.a,
+        'custom-footer': __WEBPACK_IMPORTED_MODULE_1__Footer_vue___default.a
+    }
+});
+
+/***/ }),
+/* 224 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("nav-voting"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("table", { staticClass: "table" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.polls, function(poll) {
+            return _c("tr", [
+              _c("td", { staticClass: "poll-header" }, [
+                _vm._v(_vm._s(poll.title))
+              ]),
+              _vm._v(" "),
+              _c(
+                "td",
+                _vm._l(poll.choices, function(choice) {
+                  return _c(
+                    "li",
+                    {
+                      staticClass:
+                        "d-flex justify-content-between align-items-center"
+                    },
+                    [
+                      _vm._v("- " + _vm._s(choice.name)),
+                      _c(
+                        "span",
+                        { staticClass: "badge badge-primary badge-pill" },
+                        [_vm._v(_vm._s(choice.votes))]
+                      )
+                    ]
+                  )
+                })
+              ),
+              _vm._v(" "),
+              _c("td", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: {
+                      target: "_blank",
+                      href: _vm.currentRoute(poll.url)
+                    }
+                  },
+                  [_vm._v("Click")]
+                )
+              ])
+            ])
+          })
+        )
+      ]),
+      _vm._v(" "),
+      _c("custom-footer")
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "jumbotron" }, [
+      _c("h3", { staticClass: "text-center" }, [_vm._v("Polls")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Title")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Choices")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Link")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-60ddd9ad", module.exports)
+  }
+}
+
+/***/ }),
+/* 225 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(6)
+/* script */
+var __vue_script__ = __webpack_require__(226)
+/* template */
+var __vue_template__ = __webpack_require__(227)
+/* template functional */
+  var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\Poll.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0a80e394", Component.options)
+  } else {
+    hotAPI.reload("data-v-0a80e394", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 226 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Nav_vue__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Nav_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Nav_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Footer_vue__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Footer_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Footer_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_chart_js__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_chart_js__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
+    props: ['pollid'],
+    mounted: function mounted() {
+        this.getPoll();
+    },
+
+    components: {
+        VueChart: __WEBPACK_IMPORTED_MODULE_2_vue_chart_js___default.a
+    },
+    data: function data() {
+        return {
+            view: 'vote',
+            poll: {
+                id: null,
+                name: null,
+                choices: {}
+            },
+            chartData: {
+                labels: [],
+                datasets: [{
+                    label: 'Component 1',
+                    data: [],
+                    backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)', 'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)']
+                }]
+            },
+            errors: []
+        };
+    },
+
+    methods: {
+        getPoll: function getPoll() {
+            var self = this;
+            axios.get('/api/poll/' + self.pollid).then(function (response) {
+                self.poll = response.data;
+            }).catch(function (e) {
+                self.errors.push(e);
+            });
+        },
+        vote: function vote(choice, index) {
+            var self = this;
+            console.log(choice, index);
+            axios.post('/poll/vote', {
+                poll: self.poll,
+                choice: choice,
+                index: index
+            }).then(function (response) {
+                self.poll = response.data;
+                self.switchViewToResult();
+            }).catch(function (e) {
+                self.errors.push(e);
+            });
+        },
+        visualizePoll: function visualizePoll() {
+            var _this = this;
+
+            this.chartData.labels = [];
+            this.chartData.datasets[0].data = [];
+            this.poll.choices.forEach(function (item) {
+                _this.chartData.labels.push(item.name);
+                if (item.votes !== null) {
+                    _this.chartData.datasets[0].data.push(item.votes);
+                }
+            });
+        },
+        switchViewToResult: function switchViewToResult() {
+            this.visualizePoll();
+            this.view = 'result';
+        },
+        switchViewToVote: function switchViewToVote() {
+            this.view = 'vote';
+        }
+    }
+}, 'components', {
+    'nav-voting': __WEBPACK_IMPORTED_MODULE_0__Nav_vue___default.a,
+    'custom-footer': __WEBPACK_IMPORTED_MODULE_1__Footer_vue___default.a
+}));
+
+/***/ }),
+/* 227 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("nav-voting"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", { staticClass: "jumbotron" }, [
+        _c("h3", { staticClass: "text-center" }, [
+          _vm._v(_vm._s(_vm.poll.title))
+        ])
+      ]),
+      _vm._v(" "),
+      _vm.view == "vote"
+        ? _vm._l(_vm.poll.choices, function(choice, ind) {
+            return _c("ul", { staticClass: "list-group" }, [
+              _c(
+                "li",
+                {
+                  staticClass:
+                    "list-group-item col-4 offset-4 d-flex justify-content-between align-items-center"
+                },
+                [
+                  _vm._v(_vm._s(choice.name) + " \n            "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      on: {
+                        click: function($event) {
+                          _vm.vote(choice.name, ind)
+                        }
+                      }
+                    },
+                    [
+                      _c("i", {
+                        staticClass: "fa fa-thumbs-up",
+                        attrs: { "aria-hidden": "true" }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ])
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.view == "result"
+        ? [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-5" }, [
+                _c(
+                  "ul",
+                  { staticClass: "list-group resultlist" },
+                  _vm._l(_vm.poll.choices, function(choice) {
+                    return _c(
+                      "li",
+                      {
+                        staticClass:
+                          "list-group-item d-flex justify-content-between align-items-center"
+                      },
+                      [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(choice.name) +
+                            " "
+                        ),
+                        _c(
+                          "span",
+                          { staticClass: "badge badge-secondary badge-pill" },
+                          [_vm._v(_vm._s(choice.votes))]
+                        )
+                      ]
+                    )
+                  })
+                ),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-center" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary",
+                      on: { click: _vm.switchViewToVote }
+                    },
+                    [_vm._v("Back")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-7" },
+                [
+                  _c("vue-chart", {
+                    attrs: { type: "pie", data: _vm.chartData }
+                  })
+                ],
+                1
+              )
+            ])
+          ]
+        : _vm._e(),
+      _vm._v(" "),
+      _c("custom-footer")
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0a80e394", module.exports)
+  }
+}
+
+/***/ }),
+/* 228 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(6)
+/* script */
+var __vue_script__ = __webpack_require__(229)
+/* template */
+var __vue_template__ = __webpack_require__(230)
+/* template functional */
+  var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\Profile.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-22ef5402", Component.options)
+  } else {
+    hotAPI.reload("data-v-22ef5402", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 229 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Nav_vue__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Nav_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Nav_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Footer_vue__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Footer_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Footer_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            activeView: 'new',
+            polls: null,
+            user: {
+                name: null,
+                email: null,
+                password: null
+            },
+            poll: {
+                name: null,
+                options: [{ "votes": 0, "name": null }, { "votes": 0, "name": null }, { "votes": 0, "name": null }]
+            },
+            showSuccessMessage: false,
+            showErrorMessage: false,
+            showUserMessage: false,
+            showUserFailMessage: false,
+            newUrl: null
+        };
+    },
+
+    methods: {
+        changeView: function changeView(view) {
+            var self = this;
+            self.activeView = view;
+        },
+        addMoreOptions: function addMoreOptions() {
+            var self = this;
+            self.poll.options.push({ "votes": 0 });
+        },
+        reduceOptions: function reduceOptions() {
+            var self = this;
+            self.poll.options.length > 1 ? self.poll.options.pop() : '';
+        },
+        showCurrentPath: function showCurrentPath(url) {
+            return 'http://' + window.location.hostname + "/" + url;
+        },
+        createNewPoll: function createNewPoll() {
+            var self = this;
+            self.showSuccessMessage = false;
+            self.showErrorMessage = false;
+            self.newUrl = null;
+            axios.post('/createPoll', {
+                name: self.poll.name,
+                options: self.poll.options
+            }).then(function (response) {
+                self.newUrl = response.data;
+                self.showSuccessMessage = true;
+                self.poll.name = null;
+                self.poll.options = [{ "name": null, "votes": 0 }, { "name": null, "votes": 0 }, { "name": null, "votes": 0 }];
+                self.getPolls();
+            }).catch(function (e) {
+                self.showErrorMessage = true;
+                self.errors.push(e);
+            });
+        },
+        saveUserChanges: function saveUserChanges() {
+            var self = this;
+            self.showUserMessage = false;
+            self.showUserFailMessage = false;
+            axios.post('/api/save', {
+                user: self.user
+            }).then(function (response) {
+                self.getUser();
+                self.showUserMessage = true;
+            }).catch(function (e) {
+                self.errors.push(e);
+                self.showUserFailMessage = true;
+            });
+        },
+        routeToPoll: function routeToPoll(url) {
+            return '/poll/' + url;
+        },
+        getPolls: function getPolls() {
+            var self = this;
+            axios.get('/api/polls').then(function (response) {
+                self.polls = response.data;
+            }).catch(function (e) {
+                self.errors.push(e);
+            });
+        },
+        getUser: function getUser() {
+            var self = this;
+            axios.get('/api/user').then(function (response) {
+                self.user = response.data;
+            }).catch(function (e) {
+                self.errors.push(e);
+            });
+        },
+        deletePoll: function deletePoll(poll) {
+            var self = this;
+            var confirmed = confirm("Delete this poll?");
+            if (confirmed) {
+                axios.delete('/api/delete/post/' + poll.id).then(function (response) {
+                    self.getPolls();
+                }).catch(function (e) {
+                    self.errors.push(e);
+                });
+            }
+        }
+    },
+    components: {
+        'nav-voting': __WEBPACK_IMPORTED_MODULE_0__Nav_vue___default.a,
+        'custom-footer': __WEBPACK_IMPORTED_MODULE_1__Footer_vue___default.a
+    },
+    mounted: function mounted() {
+        this.getPolls();
+        this.getUser();
+    }
+});
+
+/***/ }),
+/* 230 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("nav-voting"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", { staticClass: "jumbotron" }, [
+        _c("h5", { staticClass: "text-center" }, [
+          _vm._v("Welcome, " + _vm._s(_vm.user.name) + " !")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-center" }, [
+        _c("div", { staticClass: "btn-group text-center" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              on: {
+                click: function($event) {
+                  _vm.activeView !== "new"
+                    ? _vm.changeView("new")
+                    : (_vm.activeView = null)
+                }
+              }
+            },
+            [
+              _c("i", {
+                staticClass: "fa fa-plus-square",
+                attrs: { "aria-hidden": "true" }
+              }),
+              _vm._v(" New Poll")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success",
+              on: {
+                click: function($event) {
+                  _vm.activeView !== "my"
+                    ? _vm.changeView("my")
+                    : (_vm.activeView = null)
+                }
+              }
+            },
+            [
+              _c("i", {
+                staticClass: "fa fa-th-large",
+                attrs: { "aria-hidden": "true" }
+              }),
+              _vm._v(" My Polls")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-secondary",
+              on: {
+                click: function($event) {
+                  _vm.activeView !== "edit"
+                    ? _vm.changeView("edit")
+                    : (_vm.activeView = null)
+                }
+              }
+            },
+            [
+              _c("i", {
+                staticClass: "fa fa-pencil",
+                attrs: { "aria-hidden": "true" }
+              }),
+              _vm._v(" Edit User")
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("transition", { attrs: { name: "fade" } }, [
+        _vm.activeView !== null && _vm.activeView === "new"
+          ? _c("div", { staticClass: "card col-6 offset-md-3" }, [
+              _c("div", { staticClass: "card-body" }, [
+                _c("h4", { staticClass: "card-title" }, [_vm._v("New Poll")]),
+                _vm._v(" "),
+                _vm.showSuccessMessage
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "alert alert-success",
+                        attrs: { role: "alert" }
+                      },
+                      [
+                        _vm._v("\n                Poll was created! "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _vm.newUrl
+                          ? _c("span", [
+                              _vm._v("Link: "),
+                              _c(
+                                "a",
+                                {
+                                  attrs: {
+                                    target: "_blank",
+                                    href: _vm.routeToPoll(_vm.newUrl)
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(_vm.showCurrentPath(_vm.newUrl))
+                                  )
+                                ]
+                              )
+                            ])
+                          : _vm._e()
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.showErrorMessage
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "alert alert-danger",
+                        attrs: { role: "alert" }
+                      },
+                      [
+                        _vm._v(
+                          "\n                Error! Please try again later.\n            "
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }),
+                _c("div", { staticClass: "form" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.poll.name,
+                          expression: "poll.name"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text", name: "name" },
+                      domProps: { value: _vm.poll.name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.poll, "name", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("small", { staticClass: "form-text text-muted" }, [
+                      _vm._v("The name of your poll.")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-group" },
+                    [
+                      _c("label", [_vm._v("Options")]),
+                      _vm._v(" "),
+                      _vm._l(_vm.poll.options, function(option, ind) {
+                        return [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.poll.options[ind].name,
+                                expression: "poll.options[ind].name"
+                              }
+                            ],
+                            key: ind,
+                            staticClass: "form-control",
+                            attrs: { type: "text", name: "option" + ind },
+                            domProps: { value: _vm.poll.options[ind].name },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.poll.options[ind],
+                                  "name",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("br")
+                        ]
+                      })
+                    ],
+                    2
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticStyle: { "margin-bottom": "5px" } }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-secondary",
+                        on: { click: _vm.addMoreOptions }
+                      },
+                      [_vm._v("More Options")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        on: { click: _vm.reduceOptions }
+                      },
+                      [_vm._v("Less Options")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-block btn-primary",
+                      attrs: { type: "submit" },
+                      on: { click: _vm.createNewPoll }
+                    },
+                    [_vm._v("Create Poll")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p")
+              ])
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.activeView !== null && _vm.activeView === "my"
+          ? _c("div", { staticClass: "card col-6 offset-md-3" }, [
+              _c("div", { staticClass: "card-body" }, [
+                _c("h4", { staticClass: "card-title" }, [_vm._v("My Polls")]),
+                _vm._v(" "),
+                _vm.polls === null
+                  ? _c("p", { staticClass: "card-text" }, [
+                      _vm._v(
+                        "\n                No Polls created.\n            "
+                      )
+                    ])
+                  : _c(
+                      "ul",
+                      { staticClass: "list-group" },
+                      _vm._l(_vm.polls, function(poll) {
+                        return _c(
+                          "li",
+                          {
+                            staticClass:
+                              "list-group-item list-group-item-action list-group-item border-item"
+                          },
+                          [
+                            _c("strong", [_vm._v(_vm._s(poll.title))]),
+                            _vm._v(" "),
+                            _c("br"),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                attrs: {
+                                  target: "_blank",
+                                  href: _vm.routeToPoll(poll.url)
+                                }
+                              },
+                              [_vm._v(_vm._s(_vm.showCurrentPath(poll.url)))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "btn btn-danger btn-xs pull-right trash",
+                                on: {
+                                  click: function($event) {
+                                    _vm.deletePoll(poll)
+                                  }
+                                }
+                              },
+                              [
+                                _c("i", {
+                                  staticClass: "fa fa-trash-o",
+                                  attrs: { "aria-hidden": "true" }
+                                })
+                              ]
+                            )
+                          ]
+                        )
+                      })
+                    )
+              ])
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.activeView !== null && _vm.activeView === "edit"
+          ? _c("div", { staticClass: "card col-6 offset-md-3" }, [
+              _c("div", { staticClass: "card-body" }, [
+                _c("h4", { staticClass: "card-title" }, [_vm._v("Edit User")]),
+                _vm._v(" "),
+                _vm.showUserMessage
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "alert alert-success",
+                        attrs: { role: "alert" }
+                      },
+                      [_vm._v("\n                User edited!\n            ")]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.showUserFailMessage
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "alert alert-danger",
+                        attrs: { role: "alert" }
+                      },
+                      [
+                        _vm._v(
+                          "\n                Error! Please try again later.\n            "
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.user.name,
+                        expression: "user.name"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", name: "name" },
+                    domProps: { value: _vm.user.name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.user, "name", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.user.email,
+                        expression: "user.email"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "email", name: "email" },
+                    domProps: { value: _vm.user.email },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.user, "email", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "password" } }, [
+                    _vm._v("Password")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.user.password,
+                        expression: "user.password"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "password",
+                      placeholder: "Set your new password",
+                      name: "password"
+                    },
+                    domProps: { value: _vm.user.password },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.user, "password", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success",
+                    on: {
+                      click: function($event) {
+                        _vm.saveUserChanges()
+                      }
+                    }
+                  },
+                  [_vm._v("Save")]
+                ),
+                _vm._v(" "),
+                _c("p")
+              ])
+            ])
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c("custom-footer")
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-22ef5402", module.exports)
+  }
+}
+
+/***/ }),
+/* 231 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return store; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(232);
+
+
+
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
+
+var api = '/api/login';
+
+var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
+    state: {
+        user: false
+    },
+    mutations: {
+        fetchUser: function fetchUser(state) {
+            axios.get(api).then(function (res) {
+                state.user = res.data;
+            }).catch(function (err) {
+                console.log(err);
+            });
+        }
+    },
+    actions: {
+        fetchUser: function fetchUser(_ref) {
+            var commit = _ref.commit;
+            return commit('fetchUser');
+        }
+    },
+    getters: {
+        user: function user(state) {
+            return state.user;
+        }
+    }
+});
+
+/***/ }),
+/* 232 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -75471,1531 +77154,6 @@ var index_esm = {
 
 /* harmony default export */ __webpack_exports__["a"] = (index_esm);
 
-
-/***/ }),
-/* 217 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(6)
-/* script */
-var __vue_script__ = __webpack_require__(218)
-/* template */
-var __vue_template__ = __webpack_require__(223)
-/* template functional */
-  var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\Home.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-85ef4954", Component.options)
-  } else {
-    hotAPI.reload("data-v-85ef4954", Component.options)
-' + '  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 218 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Nav_vue__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Nav_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Nav_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Footer_vue__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Footer_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Footer_vue__);
-var _mounted$computed$dat;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (_mounted$computed$dat = {
-    mounted: function mounted() {},
-
-    computed: {},
-    data: function data() {
-        return {};
-    }
-}, _defineProperty(_mounted$computed$dat, 'computed', {}), _defineProperty(_mounted$computed$dat, 'components', {
-    'nav-voting': __WEBPACK_IMPORTED_MODULE_0__Nav_vue___default.a,
-    'custom-footer': __WEBPACK_IMPORTED_MODULE_1__Footer_vue___default.a
-}), _mounted$computed$dat);
-
-/***/ }),
-/* 219 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        this.$store.dispatch('fetchUser');
-    },
-    data: function data() {
-        return {};
-    },
-
-    computed: {
-        user: function user() {
-            return this.$store.getters.user;
-        }
-    }
-});
-
-/***/ }),
-/* 220 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "nav",
-    { staticClass: "navbar navbar-expand-lg navbar-dark bg-dark" },
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "collapse navbar-collapse", attrs: { id: "navbarNav" } },
-        [
-          _c("ul", { staticClass: "navbar-nav mr-auto" }, [
-            _vm.user
-              ? _c("li", { staticClass: "nav-item active" }, [_vm._m(1)])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm._m(2)
-          ]),
-          _vm._v(" "),
-          !_vm.user
-            ? _c("ul", { staticClass: "navbar-nav ml-auto" }, [_vm._m(3)])
-            : _c("ul", { staticClass: "navbar-nav ml-auto" }, [_vm._m(4)])
-        ]
-      )
-    ]
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "navbar-brand", attrs: { href: "/" } }, [
-      _c("i", {
-        staticClass: "fa fa-telegram",
-        attrs: { "aria-hidden": "true" }
-      }),
-      _vm._v(" Voting")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "nav-link", attrs: { href: "/profile" } }, [
-      _vm._v("My Profile"),
-      _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "/polls" } }, [
-        _vm._v("Polls")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "/profile" } }, [
-        _vm._v("Login")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "/logout" } }, [
-        _vm._v("Logout")
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-b03f2208", module.exports)
-  }
-}
-
-/***/ }),
-/* 221 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {},
-    data: function data() {
-        return {};
-    },
-
-    computed: {}
-});
-
-/***/ }),
-/* 222 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("footer", { staticClass: "text-center rounded bg-dark" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col margin-top-footer" }, [
-          _c("span", { staticClass: "text-white" }, [
-            _vm._v("Copyright © 2017")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col margin-top-footer" }, [
-          _c("span", { staticClass: "text-white" }, [_vm._v("Made by Alan")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col" }, [
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-secondary",
-              attrs: { href: "https://github.com/Alan95", target: "_blank" }
-            },
-            [
-              _c("i", {
-                staticClass: "fa fa-github text-white",
-                attrs: { "aria-hidden": "true" }
-              })
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-success",
-              attrs: {
-                href: "https://www.freecodecamp.org/alan95",
-                target: "_blank"
-              }
-            },
-            [
-              _c("i", {
-                staticClass: "fa fa-free-code-camp",
-                attrs: { "aria-hidden": "true" }
-              })
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-primary",
-              attrs: {
-                href: "https://www.linkedin.com/in/alan-saber-843573143/",
-                target: "_blank"
-              }
-            },
-            [
-              _c("i", {
-                staticClass: "fa fa-linkedin-square",
-                attrs: { "aria-hidden": "true" }
-              })
-            ]
-          )
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-0ae3fb5c", module.exports)
-  }
-}
-
-/***/ }),
-/* 223 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("nav-voting"),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c("custom-footer")
-    ],
-    1
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "main-text" }, [
-      _c("h1", { staticClass: "display-3" }, [_vm._v("Voting App")]),
-      _vm._v(" "),
-      _c("p", { staticClass: "lead" }, [
-        _vm._v("Create Polls and share them with everyone!")
-      ]),
-      _vm._v(" "),
-      _c("hr", { staticClass: "my-4" }),
-      _vm._v(" "),
-      _c("p", { staticClass: "lead" }, [
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-primary btn-lg",
-            attrs: { role: "button", href: "/register" }
-          },
-          [_vm._v("Register Now")]
-        )
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-85ef4954", module.exports)
-  }
-}
-
-/***/ }),
-/* 224 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(6)
-/* script */
-var __vue_script__ = __webpack_require__(225)
-/* template */
-var __vue_template__ = __webpack_require__(226)
-/* template functional */
-  var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\Polls.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-60ddd9ad", Component.options)
-  } else {
-    hotAPI.reload("data-v-60ddd9ad", Component.options)
-' + '  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 225 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Nav_vue__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Nav_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Nav_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Footer_vue__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Footer_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Footer_vue__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['polls'],
-    mounted: function mounted() {
-        console.log(this.polls);
-    },
-    data: function data() {
-        return {};
-    },
-
-    methods: {
-        currentRoute: function currentRoute(url) {
-            return '/poll/' + url;
-        }
-    },
-    components: {
-        'nav-voting': __WEBPACK_IMPORTED_MODULE_0__Nav_vue___default.a,
-        'custom-footer': __WEBPACK_IMPORTED_MODULE_1__Footer_vue___default.a
-    }
-});
-
-/***/ }),
-/* 226 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("nav-voting"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c("table", { staticClass: "table" }, [
-        _vm._m(1),
-        _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.polls, function(poll) {
-            return _c("tr", [
-              _c("td", { staticClass: "poll-header" }, [
-                _vm._v(_vm._s(poll.title))
-              ]),
-              _vm._v(" "),
-              _c(
-                "td",
-                _vm._l(poll.choices, function(choice) {
-                  return _c(
-                    "li",
-                    {
-                      staticClass:
-                        "d-flex justify-content-between align-items-center"
-                    },
-                    [
-                      _vm._v("- " + _vm._s(choice.name)),
-                      _c(
-                        "span",
-                        { staticClass: "badge badge-primary badge-pill" },
-                        [_vm._v(_vm._s(choice.votes))]
-                      )
-                    ]
-                  )
-                })
-              ),
-              _vm._v(" "),
-              _c("td", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-primary",
-                    attrs: {
-                      target: "_blank",
-                      href: _vm.currentRoute(poll.url)
-                    }
-                  },
-                  [_vm._v("Click")]
-                )
-              ])
-            ])
-          })
-        )
-      ]),
-      _vm._v(" "),
-      _c("custom-footer")
-    ],
-    1
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "jumbotron" }, [
-      _c("h3", { staticClass: "text-center" }, [_vm._v("Polls")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Title")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Choices")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Link")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-60ddd9ad", module.exports)
-  }
-}
-
-/***/ }),
-/* 227 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(6)
-/* script */
-var __vue_script__ = __webpack_require__(228)
-/* template */
-var __vue_template__ = __webpack_require__(229)
-/* template functional */
-  var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\Poll.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0a80e394", Component.options)
-  } else {
-    hotAPI.reload("data-v-0a80e394", Component.options)
-' + '  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 228 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Nav_vue__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Nav_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Nav_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Footer_vue__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Footer_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Footer_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_chart_js__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_chart_js__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
-    props: ['pollid'],
-    mounted: function mounted() {
-        this.getPoll();
-    },
-
-    components: {
-        VueChart: __WEBPACK_IMPORTED_MODULE_2_vue_chart_js___default.a
-    },
-    data: function data() {
-        return {
-            view: 'vote',
-            poll: {
-                id: null,
-                name: null,
-                choices: {}
-            },
-            chartData: {
-                labels: [],
-                datasets: [{
-                    label: 'Component 1',
-                    data: [],
-                    backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)', 'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)']
-                }]
-            },
-            errors: []
-        };
-    },
-
-    methods: {
-        getPoll: function getPoll() {
-            var self = this;
-            axios.get('/api/poll/' + self.pollid).then(function (response) {
-                self.poll = response.data;
-            }).catch(function (e) {
-                self.errors.push(e);
-            });
-        },
-        vote: function vote(choice, index) {
-            var self = this;
-            console.log(choice, index);
-            axios.post('/poll/vote', {
-                poll: self.poll,
-                choice: choice,
-                index: index
-            }).then(function (response) {
-                self.switchViewToResult();
-                self.poll = response.data;
-            }).catch(function (e) {
-                self.errors.push(e);
-            });
-        },
-        visualizePoll: function visualizePoll() {
-            var _this = this;
-
-            this.chartData.labels = [];
-            this.chartData.datasets[0].data = [];
-            this.poll.choices.forEach(function (item) {
-                _this.chartData.labels.push(item.name);
-                if (item.votes !== null) {
-                    _this.chartData.datasets[0].data.push(item.votes);
-                }
-            });
-        },
-        switchViewToResult: function switchViewToResult() {
-            this.visualizePoll();
-            this.view = 'result';
-        },
-        switchViewToVote: function switchViewToVote() {
-            this.view = 'vote';
-        }
-    }
-}, 'components', {
-    'nav-voting': __WEBPACK_IMPORTED_MODULE_0__Nav_vue___default.a,
-    'custom-footer': __WEBPACK_IMPORTED_MODULE_1__Footer_vue___default.a
-}));
-
-/***/ }),
-/* 229 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("nav-voting"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("div", { staticClass: "jumbotron" }, [
-        _c("h3", { staticClass: "text-center" }, [
-          _vm._v(_vm._s(_vm.poll.title))
-        ])
-      ]),
-      _vm._v(" "),
-      _vm.view == "vote"
-        ? _vm._l(_vm.poll.choices, function(choice, ind) {
-            return _c("ul", { staticClass: "list-group" }, [
-              _c(
-                "li",
-                {
-                  staticClass:
-                    "list-group-item col-4 offset-4 d-flex justify-content-between align-items-center"
-                },
-                [
-                  _vm._v(_vm._s(choice.name) + " "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      on: {
-                        click: function($event) {
-                          _vm.vote(choice.name, ind)
-                        }
-                      }
-                    },
-                    [_vm._v("Vote")]
-                  )
-                ]
-              )
-            ])
-          })
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.view == "result"
-        ? [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-5" }, [
-                _c(
-                  "ul",
-                  { staticClass: "list-group resultlist" },
-                  _vm._l(_vm.poll.choices, function(choice) {
-                    return _c(
-                      "li",
-                      {
-                        staticClass:
-                          "list-group-item d-flex justify-content-between align-items-center"
-                      },
-                      [
-                        _vm._v(
-                          "\n                        " +
-                            _vm._s(choice.name) +
-                            " "
-                        ),
-                        _c(
-                          "span",
-                          { staticClass: "badge badge-secondary badge-pill" },
-                          [_vm._v(_vm._s(choice.votes))]
-                        )
-                      ]
-                    )
-                  })
-                ),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("div", { staticClass: "text-center" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-secondary",
-                      on: { click: _vm.switchViewToVote }
-                    },
-                    [_vm._v("Back")]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-7" },
-                [
-                  _c("vue-chart", {
-                    attrs: { type: "pie", data: _vm.chartData }
-                  })
-                ],
-                1
-              )
-            ])
-          ]
-        : _vm._e(),
-      _vm._v(" "),
-      _c("custom-footer")
-    ],
-    2
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-0a80e394", module.exports)
-  }
-}
-
-/***/ }),
-/* 230 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(6)
-/* script */
-var __vue_script__ = __webpack_require__(231)
-/* template */
-var __vue_template__ = __webpack_require__(232)
-/* template functional */
-  var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\Profile.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-22ef5402", Component.options)
-  } else {
-    hotAPI.reload("data-v-22ef5402", Component.options)
-' + '  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 231 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Nav_vue__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Nav_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Nav_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Footer_vue__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Footer_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Footer_vue__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            activeView: 'new',
-            polls: null,
-            user: {
-                name: null,
-                email: null,
-                password: null
-            },
-            poll: {
-                name: null,
-                options: [{ "votes": 0, "name": null }, { "votes": 0, "name": null }, { "votes": 0, "name": null }]
-            }
-        };
-    },
-
-    methods: {
-        changeView: function changeView(view) {
-            var self = this;
-            self.activeView = view;
-        },
-        addMoreOptions: function addMoreOptions() {
-            var self = this;
-            self.poll.options.push({ "votes": 0 });
-        },
-        reduceOptions: function reduceOptions() {
-            var self = this;
-            self.poll.options.length > 1 ? self.poll.options.pop() : '';
-        },
-        createNewPoll: function createNewPoll() {
-            var self = this;
-            axios.post('/createPoll', {
-                name: self.poll.name,
-                options: self.poll.options
-            }).then(function (response) {
-                window.alert("Saved");
-                self.poll.name = null;
-                self.poll.options = [{ "name": null, "votes": 0 }, { "name": null, "votes": 0 }, { "name": null, "votes": 0 }];
-                self.getPolls();
-            }).catch(function (e) {
-                self.errors.push(e);
-            });
-        },
-        saveUserChanges: function saveUserChanges() {
-            var self = this;
-            axios.post('/api/save', {
-                user: self.user
-            }).then(function (response) {
-                window.alert("Saved");
-                self.getUser();
-            }).catch(function (e) {
-                self.errors.push(e);
-            });
-        },
-        routeToPoll: function routeToPoll(url) {
-            return '/poll/' + url;
-        },
-        getPolls: function getPolls() {
-            var self = this;
-            axios.get('/api/polls').then(function (response) {
-                self.polls = response.data;
-            }).catch(function (e) {
-                self.errors.push(e);
-            });
-        },
-        getUser: function getUser() {
-            var self = this;
-            axios.get('/api/user').then(function (response) {
-                self.user = response.data;
-            }).catch(function (e) {
-                self.errors.push(e);
-            });
-        }
-    },
-    components: {
-        'nav-voting': __WEBPACK_IMPORTED_MODULE_0__Nav_vue___default.a,
-        'custom-footer': __WEBPACK_IMPORTED_MODULE_1__Footer_vue___default.a
-    },
-    mounted: function mounted() {
-        this.getPolls();
-        this.getUser();
-    }
-});
-
-/***/ }),
-/* 232 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("nav-voting"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("div", { staticClass: "jumbotron" }, [
-        _c("h5", { staticClass: "text-center" }, [
-          _vm._v("Welcome, " + _vm._s(_vm.user.name) + " !")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "text-center" }, [
-        _c("div", { staticClass: "btn-group text-center" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary",
-              on: {
-                click: function($event) {
-                  _vm.activeView !== "new"
-                    ? _vm.changeView("new")
-                    : (_vm.activeView = null)
-                }
-              }
-            },
-            [
-              _c("i", {
-                staticClass: "fa fa-plus-square",
-                attrs: { "aria-hidden": "true" }
-              }),
-              _vm._v(" New Poll")
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-success",
-              on: {
-                click: function($event) {
-                  _vm.activeView !== "my"
-                    ? _vm.changeView("my")
-                    : (_vm.activeView = null)
-                }
-              }
-            },
-            [
-              _c("i", {
-                staticClass: "fa fa-th-large",
-                attrs: { "aria-hidden": "true" }
-              }),
-              _vm._v(" My Polls")
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-secondary",
-              on: {
-                click: function($event) {
-                  _vm.activeView !== "edit"
-                    ? _vm.changeView("edit")
-                    : (_vm.activeView = null)
-                }
-              }
-            },
-            [
-              _c("i", {
-                staticClass: "fa fa-pencil",
-                attrs: { "aria-hidden": "true" }
-              }),
-              _vm._v(" Edit User")
-            ]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("transition", { attrs: { name: "fade" } }, [
-        _vm.activeView !== null && _vm.activeView === "new"
-          ? _c("div", { staticClass: "card col-6 offset-md-3" }, [
-              _c("div", { staticClass: "card-body" }, [
-                _c("h4", { staticClass: "card-title" }, [_vm._v("New Poll")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text" }),
-                _c("div", { staticClass: "form" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.poll.name,
-                          expression: "poll.name"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text", name: "name" },
-                      domProps: { value: _vm.poll.name },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.poll, "name", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("small", { staticClass: "form-text text-muted" }, [
-                      _vm._v("The name of your poll.")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "form-group" },
-                    [
-                      _c("label", [_vm._v("Options")]),
-                      _vm._v(" "),
-                      _vm._l(_vm.poll.options, function(option, ind) {
-                        return [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.poll.options[ind].name,
-                                expression: "poll.options[ind].name"
-                              }
-                            ],
-                            key: ind,
-                            staticClass: "form-control",
-                            attrs: { type: "text", name: "option" + ind },
-                            domProps: { value: _vm.poll.options[ind].name },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.poll.options[ind],
-                                  "name",
-                                  $event.target.value
-                                )
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("br")
-                        ]
-                      })
-                    ],
-                    2
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticStyle: { "margin-bottom": "5px" } }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-secondary",
-                        on: { click: _vm.addMoreOptions }
-                      },
-                      [_vm._v("More Options")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-danger",
-                        on: { click: _vm.reduceOptions }
-                      },
-                      [_vm._v("Less Options")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-block btn-primary",
-                      attrs: { type: "submit" },
-                      on: { click: _vm.createNewPoll }
-                    },
-                    [_vm._v("Create Poll")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("p")
-              ])
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.activeView !== null && _vm.activeView === "my"
-          ? _c("div", { staticClass: "card col-6 offset-md-3" }, [
-              _c("div", { staticClass: "card-body" }, [
-                _c("h4", { staticClass: "card-title" }, [_vm._v("My Polls")]),
-                _vm._v(" "),
-                _vm.polls === null
-                  ? _c("p", { staticClass: "card-text" }, [
-                      _vm._v(
-                        "\n                No Polls created.\n            "
-                      )
-                    ])
-                  : _c(
-                      "ul",
-                      { staticClass: "list-group" },
-                      _vm._l(_vm.polls, function(poll) {
-                        return _c(
-                          "a",
-                          {
-                            staticClass:
-                              "list-group-item list-group-item-action list-group-item-info",
-                            attrs: {
-                              target: "_blank",
-                              href: _vm.routeToPoll(poll.url)
-                            }
-                          },
-                          [_vm._v(_vm._s(poll.title))]
-                        )
-                      })
-                    )
-              ])
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.activeView !== null && _vm.activeView === "edit"
-          ? _c("div", { staticClass: "card col-6 offset-md-3" }, [
-              _c("div", { staticClass: "card-body" }, [
-                _c("h4", { staticClass: "card-title" }, [_vm._v("Edit User")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text" }),
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.user.name,
-                        expression: "user.name"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", name: "name" },
-                    domProps: { value: _vm.user.name },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.user, "name", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.user.email,
-                        expression: "user.email"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "email", name: "email" },
-                    domProps: { value: _vm.user.email },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.user, "email", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "password" } }, [
-                    _vm._v("Password")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.user.password,
-                        expression: "user.password"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "password",
-                      placeholder: "Set your new password",
-                      name: "password"
-                    },
-                    domProps: { value: _vm.user.password },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.user, "password", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-success",
-                    on: {
-                      click: function($event) {
-                        _vm.saveUserChanges()
-                      }
-                    }
-                  },
-                  [_vm._v("Save")]
-                ),
-                _vm._v(" "),
-                _c("p")
-              ])
-            ])
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c("custom-footer")
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-22ef5402", module.exports)
-  }
-}
 
 /***/ }),
 /* 233 */

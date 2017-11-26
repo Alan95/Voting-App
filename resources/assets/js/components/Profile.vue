@@ -17,6 +17,12 @@
         <div class="card col-6 offset-md-3" v-if="activeView !== null && activeView === 'new'">
             <div class="card-body">
                 <h4 class="card-title">New Poll</h4>
+                <div v-if="showSuccessMessage" class="alert alert-success" role="alert">
+                    Poll was created! <br> <span v-if="newUrl">Link: <a target="_blank" :href="routeToPoll(newUrl)">{{ showCurrentPath(newUrl) }}</a></span>
+                </div>
+                <div v-if="showErrorMessage" class="alert alert-danger" role="alert">
+                    Error! Please try again later.
+                </div>
                 <p class="card-text">
                     <div class="form">
                         <div class="form-group">
@@ -48,13 +54,24 @@
                     No Polls created.
                 </p>
                 <ul class="list-group" v-else>
-                    <a target="_blank" :href="routeToPoll(poll.url)" class="list-group-item list-group-item-action list-group-item-info" v-for="poll in polls">{{ poll.title }}</a>
+                    <li class="list-group-item list-group-item-action list-group-item border-item" v-for="poll in polls">
+                        <strong>{{ poll.title }}</strong> <br> <a target="_blank" :href="routeToPoll(poll.url)">{{ showCurrentPath(poll.url) }}</a> 
+                        <button @click="deletePoll(poll)" class="btn btn-danger btn-xs pull-right trash">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        </button>
+                    </li>
                 </ul>   
              </div>   
         </div> 
         <div class="card col-6 offset-md-3" v-if="activeView !== null && activeView === 'edit'">
             <div class="card-body">
                 <h4 class="card-title">Edit User</h4>
+                <div v-if="showUserMessage" class="alert alert-success" role="alert">
+                    User edited!
+                </div>
+                <div v-if="showUserFailMessage" class="alert alert-danger" role="alert">
+                    Error! Please try again later.
+                </div>
                 <p class="card-text">
                      <div class="form-group">
                         <label for="name">Name</label>
@@ -94,7 +111,12 @@
                 poll: {
                     name: null,
                     options: [{"votes": 0, "name": null}, {"votes": 0, "name": null}, { "votes": 0, "name": null}]
-                }
+                },
+                showSuccessMessage: false,
+                showErrorMessage: false,
+                showUserMessage: false,
+                showUserFailMessage: false,
+                newUrl: null
             }
             
         },
@@ -111,33 +133,44 @@
                 var self = this;
                 self.poll.options.length > 1 ? self.poll.options.pop() : '';
             },
+            showCurrentPath(url){
+                return 'http://' + window.location.hostname + "/" + url;
+            },
             createNewPoll() {
                 var self = this;
+                self.showSuccessMessage = false;
+                self.showErrorMessage = false;
+                self.newUrl = null;
                 axios.post(`/createPoll`, {
                         name: self.poll.name,
                         options: self.poll.options
                     })
                     .then(response => {
-                    window.alert("Saved");
+                    self.newUrl = response.data; 
+                    self.showSuccessMessage = true;
                     self.poll.name =  null;
                     self.poll.options = [{"name": null, "votes": 0}, {"name": null, "votes": 0}, {"name": null, "votes": 0}]
                     self.getPolls();
                     })
                     .catch(e => {
+                    self.showErrorMessage = true;    
                     self.errors.push(e);
                     })
             },
             saveUserChanges() {
                 var self = this;
+                self.showUserMessage = false;
+                self.showUserFailMessage = false;
                 axios.post('/api/save', {
                         user: self.user
                     })
                     .then(response => {
-                        window.alert("Saved");
                         self.getUser();
+                        self.showUserMessage = true;
                     })
                     .catch(e => {
                         self.errors.push(e);
+                        self.showUserFailMessage = true;
                     })
             },
             routeToPoll(url) {
@@ -150,6 +183,19 @@
             getUser(){
                 var self = this;
                 axios.get('/api/user').then(response => { self.user = response.data }).catch(e => { self.errors.push(e) });
+            },
+            deletePoll(poll){
+                var self = this;
+                var confirmed = confirm("Delete this poll?");
+                if(confirmed){
+                    axios.delete('/api/delete/post/' + poll.id)
+                    .then(response => {
+                        self.getPolls();
+                    })
+                    .catch(e => {
+                        self.errors.push(e)
+                    });
+                }
             }
         },
         components: {
