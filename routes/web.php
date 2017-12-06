@@ -23,6 +23,7 @@ Route::get('/polls', 'PollController@showAllPolls');
 Route::get('/poll/{url}', 'PollController@showOnePoll');
 Route::post('/poll/vote', 'PollController@vote');
 Route::get('/api/login', 'UserController@isLoggedIn');
+Route::get('/api/poll/{id}', 'PollController@getOnePoll');
 
 Route::middleware('auth')->group(function(){
 
@@ -32,8 +33,8 @@ Route::middleware('auth')->group(function(){
     Route::get('/api/polls', 'PollController@getPollsFromUser');
     Route::get('/api/user', 'UserController@getCurrentUser');
     Route::post('/api/save', 'UserController@saveChanges');
-    Route::get('/api/poll/{id}', 'PollController@getOnePoll');
     Route::delete('/api/delete/post/{id}', 'PollController@deletePoll');
+    Route::patch('/api/poll/{id}', 'PollController@updatePoll');
 
     Route::prefix('poll')->group(function(){
         Route::get('/{id}/edit', 'PollController@editPoll');

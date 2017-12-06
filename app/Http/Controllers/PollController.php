@@ -86,4 +86,14 @@ class PollController extends Controller
         $poll->save();
         return response()->json($poll);
     }
+
+    public function updatePoll(Request $request, $id)
+    {
+        $poll = Poll::findOrFail($request->poll['id']);
+        
+        $poll->title = $request->poll['title'];
+        $poll->choices = $request->poll['choices'];
+        $poll->save();
+        return response(200);
+    }
 }

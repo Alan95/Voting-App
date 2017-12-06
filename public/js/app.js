@@ -75216,6 +75216,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -75224,6 +75253,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
     props: ['pollid'],
     mounted: function mounted() {
+        this.$store.dispatch('fetchUser');
         this.getPoll();
     },
 
@@ -75238,6 +75268,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 name: null,
                 choices: {}
             },
+            user_id: null,
             chartData: {
                 labels: [],
                 datasets: [{
@@ -75255,6 +75286,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             var self = this;
             axios.get('/api/poll/' + self.pollid).then(function (response) {
                 self.poll = response.data;
+                self.user_id = response.data.user_id;
             }).catch(function (e) {
                 self.errors.push(e);
             });
@@ -75291,6 +75323,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         },
         switchViewToVote: function switchViewToVote() {
             this.view = 'vote';
+        },
+        switchViewToEdit: function switchViewToEdit() {
+            this.view = 'edit';
+        },
+        updatePoll: function updatePoll() {
+            var self = this;
+            axios.patch('/api/poll/' + self.user_id, {
+                poll: self.poll
+            }).then(function (response) {
+                console.log(response.data);
+                alert("Updated");
+                self.view = 'vote';
+            }).catch(function (e) {
+                self.errors.push(e);
+            });
+        }
+    },
+    computed: {
+        user: function user() {
+            return this.$store.getters.user.id;
         }
     }
 }, 'components', {
@@ -75313,48 +75365,72 @@ var render = function() {
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _c("div", { staticClass: "jumbotron" }, [
-        _c("h3", { staticClass: "text-center" }, [
-          _vm._v(_vm._s(_vm.poll.title))
-        ])
-      ]),
-      _vm._v(" "),
       _vm.view == "vote"
-        ? _vm._l(_vm.poll.choices, function(choice, ind) {
-            return _c("ul", { staticClass: "list-group" }, [
-              _c(
-                "li",
-                {
-                  staticClass:
-                    "list-group-item col-4 offset-4 d-flex justify-content-between align-items-center"
-                },
-                [
-                  _vm._v(_vm._s(choice.name) + " \n            "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      on: {
-                        click: function($event) {
-                          _vm.vote(choice.name, ind)
+        ? [
+            _c("div", { staticClass: "jumbotron" }, [
+              _c("h3", { staticClass: "text-center" }, [
+                _vm._v(_vm._s(_vm.poll.title))
+              ])
+            ]),
+            _vm._v(" "),
+            _vm.user == _vm.user_id
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-warning",
+                    on: { click: _vm.switchViewToEdit }
+                  },
+                  [
+                    _c("i", {
+                      staticClass: "fa fa-pencil",
+                      attrs: { "aria-hidden": "true" }
+                    })
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm._l(_vm.poll.choices, function(choice, ind) {
+              return _c("ul", { staticClass: "list-group" }, [
+                _c(
+                  "li",
+                  {
+                    staticClass:
+                      "list-group-item col-4 offset-4 d-flex justify-content-between align-items-center"
+                  },
+                  [
+                    _vm._v(_vm._s(choice.name) + " \n                "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        on: {
+                          click: function($event) {
+                            _vm.vote(choice.name, ind)
+                          }
                         }
-                      }
-                    },
-                    [
-                      _c("i", {
-                        staticClass: "fa fa-thumbs-up",
-                        attrs: { "aria-hidden": "true" }
-                      })
-                    ]
-                  )
-                ]
-              )
-            ])
-          })
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-thumbs-up",
+                          attrs: { "aria-hidden": "true" }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ])
+            })
+          ]
         : _vm._e(),
       _vm._v(" "),
       _vm.view == "result"
         ? [
+            _c("div", { staticClass: "jumbotron" }, [
+              _c("h3", { staticClass: "text-center" }, [
+                _vm._v(_vm._s(_vm.poll.title) + " - Results")
+              ])
+            ]),
+            _vm._v(" "),
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-5" }, [
                 _c(
@@ -75407,6 +75483,103 @@ var render = function() {
                 ],
                 1
               )
+            ])
+          ]
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.view == "edit"
+        ? [
+            _c("div", { staticClass: "jumbotron" }, [
+              _c("h3", { staticClass: "text-center" }, [
+                _vm._v(_vm._s(_vm.poll.title) + " - Edit")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-4 offset-4" }, [
+                _c("div", { staticClass: "form-group title-input" }, [
+                  _c("label", [_vm._v("Title")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.poll.title,
+                        expression: "poll.title"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text" },
+                    domProps: { value: _vm.poll.title },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.poll, "title", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "ul",
+                    { staticClass: "list-group resultlist" },
+                    [
+                      _vm._l(_vm.poll.choices, function(choice, ind) {
+                        return [
+                          _c("label", [_vm._v("Option - " + _vm._s(ind))]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: choice.name,
+                                expression: "choice.name"
+                              }
+                            ],
+                            staticClass:
+                              "list-group-item d-flex justify-content-between align-items-center",
+                            domProps: { value: choice.name },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(choice, "name", $event.target.value)
+                              }
+                            }
+                          })
+                        ]
+                      })
+                    ],
+                    2
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-center" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      on: { click: _vm.switchViewToVote }
+                    },
+                    [_vm._v("Back")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      on: { click: _vm.updatePoll }
+                    },
+                    [_vm._v("Save")]
+                  )
+                ])
+              ])
             ])
           ]
         : _vm._e(),
